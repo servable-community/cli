@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e
 // https://www.reddit.com/r/node/comments/12uak6h/npx_not_running_correctly/
 // https://docs.npmjs.com/cli/v9/configuring-npm/package-json#bin
 // https://github.com/yargs/yargs/issues/1844#issuecomment-998966393
