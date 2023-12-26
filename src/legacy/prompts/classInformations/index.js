@@ -2,7 +2,6 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import path from "path"
 import chalk from "chalk"
 import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
@@ -12,7 +11,7 @@ import protocolSchemaOwnClasses from "./lib/protocolSchemaOwnClasses.js"
 export default async (props) => {
     const { generator, payload, options = {} } = props
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Class informations 🚀`,
         subTitle: `Servable required class informations.`

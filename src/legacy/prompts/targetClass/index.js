@@ -4,7 +4,6 @@
 import chalk from "chalk"
 import isFolderClass from "./lib/isFolderClass.js"
 // import getServablePackage from "./lib/getServablePackage.js"
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import path from "path"
 import targetProtocol from "../targetProtocol/index.js"
 import askForGeneric from "../utils/askForGeneric.js"
@@ -60,7 +59,7 @@ export default async (props) => {
     }
 
     await targetProtocol(props)
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Class choice 🚀`,
         subTitle: `Choose the class.`

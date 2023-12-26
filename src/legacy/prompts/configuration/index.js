@@ -4,7 +4,6 @@
 
 
 import askForConfigurations from "./askForConfigurations.js"
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 // import askForState from "./askForState.js"
 
 export default async (props) => {
@@ -13,7 +12,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Configurations ⚙`,
         subTitle: `Servable can be used in a staging or production configurations, or both at the same time.`

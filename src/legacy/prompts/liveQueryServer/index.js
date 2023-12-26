@@ -6,7 +6,6 @@ import askForGeneric from "../utils/askForGeneric.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
 
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
@@ -16,7 +15,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Live query server ⚡️`,
         subTitle: `A distinct live query server can drastically improve the app's performance for live queries.`

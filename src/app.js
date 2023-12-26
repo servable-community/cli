@@ -4,6 +4,7 @@
 // https://docs.npmjs.com/cli/v9/configuring-npm/package-json#bin
 // https://github.com/yargs/yargs/issues/1844#issuecomment-998966393
 // https://github.com/yargs/yargs/issues/225#issuecomment-699540088
+// https://github.com/lirantal/nodejs-cli-apps-best-practices
 
 // https://stackoverflow.com/a/69503617
 /*

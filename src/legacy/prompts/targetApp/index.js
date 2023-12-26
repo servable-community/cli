@@ -5,7 +5,6 @@ import chalk from "chalk"
 import isFolderServableApp from "./lib/isFolderServableApp.js"
 import isFolderServableAppSync from "./lib/isFolderServableAppSync.js"
 import getServablePackage from "./lib/getServablePackage.js"
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import path from "path"
 import askForGeneric from "../utils/askForGeneric.js"
 
@@ -35,7 +34,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `App choice 🚀`,
         subTitle: `Choose the app you want to add a protocol to.`

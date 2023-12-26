@@ -21,11 +21,20 @@
       // "args": [
       //   "document",
       // ],
+      // "args": [
+      //   "protocol",
+      //   "community",
+      //   "use",
+      //   // "eject",
+      // ],
       "args": [
-        "protocol",
-        "community",
-        "use",
-        // "eject",
+        "app",
+        "new",
+        "-q",
+        // "-n",
+        // "Mix",
+        // "--adapter",
+        // "pp"
       ],
       "runtimeArgs": [
         // "--trace-warnings",

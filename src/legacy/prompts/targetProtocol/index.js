@@ -4,7 +4,6 @@
 import chalk from "chalk"
 import isFolderProtocol from "./lib/isFolderProtocol.js"
 // import getServablePackage from "./lib/getServablePackage.js"
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import isFolderProtocolSync from "./lib/isFolderProtocolSync.js"
 import askForGeneric from "../utils/askForGeneric.js"
 import updateTargetProtocolFromPath from "./updateTargetProtocolFromPath.js"
@@ -31,7 +30,7 @@ export default async (props) => {
         return true
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Protocol choice 🐝`,
         subTitle: `Choose a protocol`

@@ -1,7 +1,6 @@
 /*---------------------------------------------------------
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
@@ -13,7 +12,7 @@ export default async (props) => {
     //     return
     // }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Target folder 🚀`,
         subTitle: `Choose the folder in your filesystem.`

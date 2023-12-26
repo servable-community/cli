@@ -4,13 +4,15 @@ export default ({
   description: 'Protocol community management',
   options: {
     appMasterKey: {
-      type: String,
+      type: 'string',
+      promptType: 'input',
       alias: 'm',
       default: 'MASTER_KEY_TO_CHANGE',
       description: 'App master key'
     },
     appJavascriptKey: {
-      type: String,
+      type: 'string',
+      promptType: 'input',
       alias: 'j',
       default: 'JAVASCRIPT_KEY_TO_CHANGE',
       description: 'App javascript key'

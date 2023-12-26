@@ -1,4 +1,4 @@
-import ask from '../../prompt/ask.js'
+import ask from './ask.js'
 import Bluebird from "bluebird"
 
 export default ({ generator }) => {
@@ -10,10 +10,17 @@ export default ({ generator }) => {
       await Bluebird.Promise.mapSeries(
         questions,
         async question => {
+          let fullQuestion = question
+          const items = generator.options.filter(a => a.name === question.name)
+          if (items && items.length) {
+            fullQuestion = {
+              ...items[0],
+              ...fullQuestion
+            }
+          }
           const v = await ask({
-            options: question,
+            question: fullQuestion,
             payload: generator.payload,
-            // programOptions: options,
             generator
           })
           result[question.name] = v

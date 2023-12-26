@@ -7,7 +7,6 @@ import askForAppId from "./askForAppId.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
 import askForGenericPort from "../utils/askForGenericPort.js"
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
@@ -16,7 +15,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `App informations 🚀`,
         subTitle: `Servable required general informations.`

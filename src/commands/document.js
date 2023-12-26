@@ -5,7 +5,8 @@ export default ({
   options: [
     {
       name: 'appMasterKey',
-      type: String,
+      type: 'string',
+      promptType: 'input',
       alias: 'm',
       defaultValue: 'MASTER_KEY_TO_CHANGE',
       description: 'App master key'

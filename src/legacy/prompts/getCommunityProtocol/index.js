@@ -2,7 +2,6 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import askForProtocol from "./askForProtocol/index.js"
 
 export default async (props) => {
@@ -11,7 +10,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Choose a protocol`,
         subTitle: ``

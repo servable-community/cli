@@ -4,14 +4,15 @@ export default ({
   description: 'Servable Framework CLI 🐻',
   options: [{
     name: 'quick',
-    type: Boolean,
+    type: 'boolean',
     alias: 'q',
     description: 'Quick mode, skip all optional prompts and use defaults',
     global: true
   },
   {
     name: 'appMasterKey',
-    type: String,
+    type: 'string',
+    promptType: 'input',
     alias: 'm',
     default: 'MASTER_KEY_TO_CHANGE',
     description: 'App master key'

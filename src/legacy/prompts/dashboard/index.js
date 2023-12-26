@@ -2,7 +2,6 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import validateNumber from "../../lib/validateNumber.js"
 import askForGeneric from "../utils/askForGeneric.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
@@ -14,7 +13,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `Servable dashboard 🚀`,
         subTitle: `Servable dashboard helps you visualize and edit the app's data and configuration.`

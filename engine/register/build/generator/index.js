@@ -1,8 +1,10 @@
 
-import prompt from './prompt.js'
+import prompt from './prompt/index.js'
 import template from './template.js'
 import fs from './fs.js'
-import CP from 'child_process'
+import cp from 'child_process'
+import ui from './ui.js'
+
 export default ({ payload }) => {
 
   const generator = {
@@ -10,13 +12,18 @@ export default ({ payload }) => {
     print: console,
   }
 
+  generator.ui = ui({ generator })
   generator.prompt = prompt({ generator })
   generator.template = template({ generator })
   generator.fs = fs({ generator })
-  generator.spawnCommand = (command, args, options) => {
-    return CP.spawn(command, args, options)
+  generator.spawn = async (command, args, options) => {
+    return new Promise(resolve => {
+      const result = cp.spawn(command, args, options)
+      result.on('close', () => {
+        resolve()
+      })
+    })
   }
 
   return generator
 }
-

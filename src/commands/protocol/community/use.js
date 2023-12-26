@@ -5,7 +5,8 @@ export default ({
   options: [
     {
       name: 'id',
-      type: String,
+      type: 'string',
+      promptType: 'input',
       alias: 'i',
       defaultValue: '',
       description: 'Unique protocol id to import'
@@ -28,7 +29,7 @@ export default ({
     }
 
     const f = generator.template.render('<%= people.join(", "); %>', { people: ['geddy', 'neil', 'alex'] })
-    generator.spawnCommand('git', ['add', '.',])
+    await generator.spawn('git', ['add', '.',])
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
     const { age, shoe, name } = await generator.prompt.ask(questions)

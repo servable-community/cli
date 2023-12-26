@@ -5,7 +5,6 @@
 
 import askForGenericPort from "../utils/askForGenericPort.js"
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import validateNumber from "../../lib/validateNumber.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
@@ -15,7 +14,7 @@ export default async (props) => {
         return
     }
 
-    drawSectionHeader({
+    generator.ui.drawSectionHeader({
         generator,
         title: `App database 💿`,
         subTitle: `Servable handles both mongodb and PostGreSQL databases.`

@@ -1,21 +1,10 @@
 
 export default ({ option, yargs }) => {
-  const { name, description, type, global = false, alias, defaultValue } = option
-  let _type = 'string'
+  const { name, description, type = 'string', global = false, alias, defaultValue } = option
 
-  switch (type) {
-    default:
-    case String: {
-      _type = 'string'
-    } break
-    case Boolean: {
-      _type = 'boolean'
-    } break
-
-  }
   yargs.option(name, {
     desc: description,
-    type: _type,
+    type,
     global,
     alias,
     default: defaultValue
