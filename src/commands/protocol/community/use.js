@@ -1,34 +1,19 @@
 
 export default ({
   name: 'use',
-  description: 'Use a protocol',
-  options: {
-    'appMasterKey': {
+  description: `Use a  Servable Community Protocol 🐝`,
+  options: [
+    {
+      name: 'id',
       type: String,
-      alias: 'm',
-      default: 'MASTER_KEY_TO_CHANGE',
-      description: 'App master key'
-    },
-    'appJavascriptKey': {
-      type: String,
-      alias: 'j',
-      default: 'JAVASCRIPT_KEY_TO_CHANGE',
-      description: 'App javascript key'
-    },
-  },
-  params: {
-    name: {
-      type: "string",
-      demandOption: true,
-      describe: "Contact name",
-    },
-    phone: {
-      type: "string",
-      describe: "Contact phone",
-    },
-  },
-  handler: async ({ toolbox }) => {
-    const { print, } = toolbox
+      alias: 'i',
+      defaultValue: '',
+      description: 'Unique protocol id to import'
+    }],
+  example: "$0 protocol community use --id='protocolable'",
+  usage: 'Usage: servable <command>',
+  handler: async ({ generator, payload }) => {
+    const { print, } = generator
 
     print.info('Use a community protocol 🐻🐝')
 
@@ -42,8 +27,10 @@ export default ({
       choices: ['Clown', 'Other'],
     }
 
+    const f = generator.template.render('<%= people.join(", "); %>', { people: ['geddy', 'neil', 'alex'] })
+    generator.spawnCommand('git', ['add', '.',])
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await toolbox.prompt.ask(questions)
+    const { age, shoe, name } = await generator.prompt.ask(questions)
   },
 })

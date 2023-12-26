@@ -13,27 +13,20 @@
       ],
       "program": "${workspaceFolder}/src/app.js",
       // "args": [
-      //   "servable",
-      // ],
-      "args": [
-        "servable",
-        "protocol",
-        "eject",
-      ],
-      // "args": [
-      //   "servable",
+      //   "protocol",
+      //   "eject",
       // ],
       // "args": [
-      //   "servable",
+      // ],
+      // "args": [
       //   "document",
       // ],
-      // "args": [
-      //   "servable",
-      //   "protocol",
-      //   "community",
-      //   "use",
-      //   // "eject",
-      // ],
+      "args": [
+        "protocol",
+        "community",
+        "use",
+        // "eject",
+      ],
       "runtimeArgs": [
         // "--trace-warnings",
         // "--require=dotenv/config",

@@ -1,11 +1,12 @@
 import registerPrompts from './prompt/register.js'
-import buildToolbox from './build/buildToolbox.js'
+import buildGenerator from './build/generator/index.js'
 import buildDir from './build/index.js'
 
 export default async ({ path, yargs, }) => {
   registerPrompts()
-  const toolbox = buildToolbox()
-  const { index, commands } = await buildDir({ path, toolbox, yargs, root: true })
+  const payload = {}
+  const generator = buildGenerator({ payload })
+  const { index, commands } = await buildDir({ path, generator, yargs, root: true, payload })
   // yargs.command(index)
   commands.forEach(command => {
     yargs.command(command)

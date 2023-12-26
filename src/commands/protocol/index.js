@@ -10,8 +10,8 @@ export default ({
       default: 'MASTER_KEY_TO_CHANGE',
       description: 'App master key'
     }],
-  handler: async ({ toolbox }) => {
-    const { print, } = toolbox
+  handler: async ({ generator }) => {
+    const { print, } = generator
 
     print.info('Protocol 🐻🐝')
 
@@ -27,6 +27,6 @@ export default ({
 
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await toolbox.prompt.ask(questions)
+    const { age, shoe, name } = await generator.prompt.ask(questions)
   },
 })

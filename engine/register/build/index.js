@@ -3,7 +3,7 @@ import fs from 'fs'
 import buildCommand from './buildCommand.js'
 import formatOptionForYargs from '../../lib/formatOptionForYargs.js'
 
-const operation = async ({ path, toolbox, yargs, root = false }) => {
+const operation = async ({ path, generator, yargs, root = false, payload }) => {
   const candidates = await jetpack.listAsync(path)
   if (!candidates || !candidates.length) {
     return
@@ -21,7 +21,7 @@ const operation = async ({ path, toolbox, yargs, root = false }) => {
       return null
     }
 
-    const subCommand = await operation({ path: __path, toolbox })
+    const subCommand = await operation({ path: __path, generator, payload })
     subCommands.push(subCommand)
   }))
 
@@ -32,7 +32,7 @@ const operation = async ({ path, toolbox, yargs, root = false }) => {
       return null
     }
 
-    const { data: commandData, command } = await buildCommand({ path: __path, toolbox, fileName: item })
+    const { data: commandData, command } = await buildCommand({ path: __path, generator, fileName: item, payload })
 
     if (item === 'index.js') {
       return
@@ -62,7 +62,7 @@ const operation = async ({ path, toolbox, yargs, root = false }) => {
       return
     }
 
-    const { data: commandData, command } = await buildCommand({ path: __path, toolbox, fileName: item })
+    const { data: commandData, command } = await buildCommand({ path: __path, generator, fileName: item, payload })
 
     if (!root) {
       command.builder = yargs => {

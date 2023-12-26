@@ -16,7 +16,7 @@
     "require": "./dist/app.cjs",
     "default": "./dist/app.modern.js"
   },
-  "main": "src/app.js",
+  "main": "./dist/app.modern.js",
   "module": "./dist/app.module.js",
   "unpkg": "./dist/app.umd.js",
   "scripts": {

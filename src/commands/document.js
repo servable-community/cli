@@ -12,8 +12,8 @@ export default ({
     }],
   example: "$0 document --name='Doable'",
   usage: 'Usage: servable <command>',
-  handler: async ({ toolbox }) => {
-    const { print, } = toolbox
+  handler: async ({ generator }) => {
+    const { print, } = generator
 
     print.info('Document Servable CLI js 🐻🐝')
 
@@ -29,6 +29,6 @@ export default ({
 
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await toolbox.prompt.ask(questions)
+    const { age, shoe, name } = await generator.prompt.ask(questions)
   },
 })

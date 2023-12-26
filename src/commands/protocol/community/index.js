@@ -27,14 +27,14 @@ export default ({
       describe: "Contact phone",
     },
   },
-  handler: async ({ toolbox }) => {
-    const { print, } = toolbox
+  handler: async ({ generator }) => {
+    const { print, } = generator
 
     print.info('Protocols community index 🐻🐝')
 
     const askAge = { type: 'input', name: 'age', message: 'How old are you?' }
     const askName = { type: 'input', name: 'name', message: 'Your name?', initial: 'Abou' }
-    const v = await toolbox.prompt.ask(askAge)
+    const v = await generator.prompt.ask(askAge)
 
     // multiple choice
     const askShoe = {
@@ -46,12 +46,12 @@ export default ({
 
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await toolbox.prompt.ask(questions)
+    const { age, shoe, name } = await generator.prompt.ask(questions)
 
-    const isThe90s = await toolbox.prompt.confirm('Ya`ll ready for this?')
+    const isThe90s = await generator.prompt.confirm('Ya`ll ready for this?')
     const choices = ['red', 'green', 'cheese', 'bread']
 
-    const result = await toolbox.prompt.ask([
+    const result = await generator.prompt.ask([
       {
         type: 'select',
         name: 'exselect',
@@ -111,7 +111,7 @@ export default ({
 
     // const {
     //   template: { generate },
-    // } = toolbox
+    // } = generator
 
     // await generate({
     //   template: 'model.ts.ejs',
