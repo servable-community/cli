@@ -1,4 +1,3 @@
-import inquirer from 'inquirer'
 import getValidators from './validators/index.js'
 import Bluebird from "bluebird"
 import chalk from "chalk"
@@ -7,14 +6,15 @@ export default async (props) => {
   const {
     payload,
     question,
-    generator } = props
+    generator,
+    promptModule,
+    promptType } = props
 
   let {
     name,
     description: message,
     defaultValue,
-    promptType = 'input',
-    validators = [{ id: 'nonEmpty' }] } = question
+    validators = [{ type: 'nonEmpty' }] } = question
 
   if (!name) {
     return
@@ -44,7 +44,7 @@ export default async (props) => {
 
   const validates = validators.map(v => getValidators(v))
 
-  payload[name] = (await inquirer.prompt({
+  payload[name] = (await promptModule.prompt({
     ...props.question,
     type: promptType,
     name,

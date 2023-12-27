@@ -2,30 +2,51 @@ import * as AppContent from '../../fractions/app/content/generic/index.js'
 
 export default ({
   name: 'new',
-  description: `Use a  Servable Community Protocol 🐝`,
+  description: `Create a Servable app 🐝`,
   options: [
     {
       name: 'appName',
       type: 'string',
-      promptType: 'input',
+      prompt: {
+        "type": 'input',
+        "module": "inquirer"
+      },
       alias: 'n',
       defaultValue: 'MyAppName',
       description: 'App name',
-      validators: [{ id: 'nonEmpty', maxParams: 2 }]
+      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
+    },
+    {
+      name: 'appDescription',
+      type: 'string',
+      prompt: {
+        "type": 'input',
+        "module": "inquirer"
+      },
+      alias: 'n',
+      defaultValue: 'A Servable app',
+      description: 'App description',
+      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
     {
       name: 'adapter',
       type: 'string',
-      promptType: 'input',
+      prompt: {
+        "type": 'input',
+        "module": "inquirer"
+      },
       alias: 'a',
       defaultValue: '@servable/parse-server',
       description: 'Framework adapter to use',
-      validators: [{ id: 'nonEmpty', maxParams: 12 }]
+      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
     {
       name: 'install',
       type: 'boolean',
-      promptType: 'input',
+      prompt: {
+        "type": 'input',
+        "module": "inquirer"
+      },
       alias: 'i',
       defaultValue: true,
       description: 'Install dependencies'

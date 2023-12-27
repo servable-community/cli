@@ -19,9 +19,9 @@ export default async (props) => {
     {
       name: 'adapter',
     },
-    // {
-    //   name: 'appDescription',
-    // },
+    {
+      name: 'appDescription',
+    },
     // {
     //   name: 'appMasterKey',
     // },

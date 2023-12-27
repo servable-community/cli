@@ -1,9 +1,8 @@
-import registerPrompts from './prompt/register.js'
 import buildGenerator from './build/generator/index.js'
 import buildDir from './build/index.js'
 
 export default async ({ path, yargs, }) => {
-  registerPrompts()
+
   const payload = {}
   const generator = buildGenerator({ payload })
   const { index, commands } = await buildDir({ path, generator, yargs, root: true, payload })
