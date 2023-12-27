@@ -1,7 +1,7 @@
 
 export default ({
   name: 'scan',
-  description: `Use a  Servable Community Protocol 🐝`,
+  description: `Scan app for conformity 🐝`,
   options: [
     {
       name: 'id',
