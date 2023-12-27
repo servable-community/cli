@@ -57,7 +57,6 @@ export default ({
   handler: async ({ generator, payload }) => {
     const { print, } = generator
     print.info('Create a new app 🐻🐝')
-
     await AppContent.ask({ generator, payload })
     await AppContent.write({ generator, payload })
   },
