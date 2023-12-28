@@ -12,7 +12,7 @@ export default async (props) => {
 
   let {
     name,
-    description: message,
+    message,
     defaultValue,
     validators = [{ type: 'nonEmpty' }] } = question
 
@@ -42,8 +42,6 @@ export default async (props) => {
     return
   }
 
-  const validates = validators.map(v => getValidators(v))
-
   payload[name] = (await promptModule.prompt({
     ...props.question,
     type: promptType,
@@ -61,6 +59,9 @@ export default async (props) => {
             isValid = false
           }
         })
+      if (props.question.validate) {
+        isValid = props.question.validate(input)
+      }
       return isValid
     }
   }))[name]

@@ -4,6 +4,10 @@
 // import valdiateNonEmpty from "../../../../../lib/valdiateNonEmpty.js"
 // import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 
+
+import search from './askForProtocol/search.js'
+import getById from './askForProtocol/getById.js'
+
 export default async (props) => {
   const { generator, payload } = props
   generator.ui.drawSectionHeader({
@@ -17,18 +21,39 @@ export default async (props) => {
       name: 'appName',
     },
     {
-      name: 'adapter',
+      name: 'license',
     },
     {
-      name: 'appDescription',
+      name: 'username',
     },
     // {
-    //   name: 'appMasterKey',
+    //   name: 'adapter',
     // },
     // {
-    //   name: 'appJavascriptKey',
-    // }
+    //   name: 'appDescription',
+    // },
   ])
+
+  await generator.prompt.ask({
+    name: 'adapterId',
+    suggestOnly: false,
+    searchText: 'Searching...',
+    emptyText: 'Nothing found!',
+    source: search,
+    pageSize: 4,
+    validate(val) {
+      return val ? true : 'Type something!'
+    },
+    transformer: (name,) => {
+      if (!name) {
+        return name
+      }
+
+      return name
+    }
+  })
+  const item = await getById({ id: payload['adapterId'] })
+  payload._adapter = item
 
   // await askForAppInfos(props)
   // await askForLicense(props)

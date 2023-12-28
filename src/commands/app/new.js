@@ -9,11 +9,10 @@ export default ({
       type: 'string',
       prompt: {
         "type": 'input',
-        "module": "inquirer"
       },
       alias: 'n',
       defaultValue: 'MyAppName',
-      description: 'App name',
+      message: 'App name',
       validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
     {
@@ -21,35 +20,27 @@ export default ({
       type: 'string',
       prompt: {
         "type": 'input',
-        "module": "inquirer"
       },
-      alias: 'n',
       defaultValue: 'A Servable app',
-      description: 'App description',
+      message: 'App description',
       validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
     {
-      name: 'adapter',
+      name: 'adapterId',
       type: 'string',
       prompt: {
-        "type": 'input',
-        "module": "inquirer"
+        "type": 'autocomplete',
+        // "module": "inquirer"
       },
       alias: 'a',
       defaultValue: '@servable/parse-server',
-      description: 'Framework adapter to use',
+      message: 'Framework adapter to use',
       validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
     {
-      name: 'install',
-      type: 'boolean',
-      prompt: {
-        "type": 'input',
-        "module": "inquirer"
-      },
-      alias: 'i',
-      defaultValue: true,
-      description: 'Install dependencies'
+      name: 'installDependencies',
+    }, {
+      name: 'license',
     }
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",

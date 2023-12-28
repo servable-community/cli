@@ -1,3 +1,3 @@
-import register from './register/index.js'
+import launch from './launch.js'
 
-export { register }
+export { launch }

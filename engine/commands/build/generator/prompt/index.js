@@ -1,6 +1,6 @@
 import ask from './ask.js'
 import Bluebird from "bluebird"
-import defaultPromptModule from './defaultPromptModule.js'
+import _promptModule from './promptModule.js'
 
 import inquirerPromptAutocomplete from 'inquirer-autocomplete-prompt'
 import inquirerFileTreeSelection from 'inquirer-file-tree-selection-prompt'
@@ -26,8 +26,13 @@ export default ({ generator }) => {
             }
           }
           const { type: promptType = 'input',
-            module: promptModule = defaultPromptModule()
-          } = question.prompt ? question.prompt : {}
+            module: _f
+          } = fullQuestion.prompt ? fullQuestion.prompt : {}
+
+          let promptModule = _f ? _f : _promptModule()
+          if (typeof promptModule === 'string') {
+            promptModule = _promptModule(_f)
+          }
 
           const v = await ask({
             question: fullQuestion,
@@ -50,7 +55,7 @@ export default ({ generator }) => {
     }
   }
 
-  const promptModule = defaultPromptModule()
+  const promptModule = _promptModule()
   prompt.registerPrompt(promptModule, 'autocomplete', inquirerPromptAutocomplete)
   prompt.registerPrompt(promptModule, 'file-tree-selection', inquirerFileTreeSelection)
   prompt.registerPrompt(promptModule, 'json-file', inquirerParseJsonFile)

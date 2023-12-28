@@ -1,9 +1,9 @@
 
 export default ({ option, yargs }) => {
-  const { name, description, type = 'string', global = false, alias, defaultValue } = option
+  const { name, description, message, type = 'string', global = false, alias, defaultValue } = option
 
   yargs.option(name, {
-    desc: description,
+    desc: description ? description : message,
     type,
     global,
     alias,

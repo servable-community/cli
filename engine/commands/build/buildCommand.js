@@ -11,6 +11,27 @@ export default async ({
     handler,
     example } = data
 
+  // let nativeArgv = parseArgv(process.argv)
+  // delete nativeArgv["--"]
+  // delete nativeArgv["_"]
+  // Object.keys(nativeArgv).forEach(n => {
+  //   generator.payload[n] = nativeArgv[n]
+  // })
+
+  // const _options = (data.options && data.options.length)
+  //   ? data.options
+  //   : []
+  // const options = _options.map(option => {
+  //   const value = nativeArgv[option.name]
+
+  //   return {
+  //     ...option,
+  //     value
+  //   }
+  // })
+  // generator.mergeOptions(options)
+
+
   const command = {
     command: name,
     desc: description,
@@ -34,10 +55,7 @@ export default async ({
           value
         }
       })
-      generator.options = [
-        ...(generator.options ? generator.options : []),
-        ...options
-      ]
+      generator.mergeOptions(options)
       data.handler({ generator, payload, argv })
     }
   }
