@@ -26,19 +26,19 @@ export default async (props) => {
   }
   const valueIsDefined = !(value === null || value === undefined)
   if (valueIsDefined) {
-    generator.print.log(`${chalk.green('✓')} ${chalk.bold(name)}: ${chalk.italic(value)}`)
+    generator.print.log(`${chalk.green('✓')} ${chalk.bold(message ? message : name)} ${chalk.italic(value)}`)
     return
   }
 
   const isQuick = payload['quick'] || payload['q']
   if (isQuick && valueIsDefined) {
-    generator.print.log(`${chalk.green('✓')} ${chalk.bold(name)}: ${chalk.italic(value)}`)
+    generator.print.log(`${chalk.green('✓')} ${chalk.bold(message ? message : name)} ${chalk.italic(value)}`)
     return
   }
 
   if (isQuick && !(defaultValue === null || defaultValue === undefined)) {
     payload[name] = defaultValue
-    generator.print.log(`${chalk.green('✓')} ${chalk.bold(name)}: ${chalk.italic(payload[name])}`)
+    generator.print.log(`${chalk.green('✓')} ${chalk.bold(message ? message : name)} ${chalk.italic(payload[name])}`)
     return
   }
 
@@ -53,10 +53,20 @@ export default async (props) => {
       await Bluebird.Promise.mapSeries(
         validators,
         async validator => {
+
           const validate = getValidators(validator)
-          const _i = await validate({ input, ...validator })
-          if (!_i) {
-            isValid = false
+          if (validate) {
+            const _i = await validate({ input, ...validator })
+            if (!_i) {
+              isValid = false
+            }
+            return
+          }
+
+          if (validate.regex) {
+            const f = new RegExp(validate.regex, 'g')
+            // isValid = validator.regex.test(input)
+            isValid = f.test(input)
           }
         })
       if (props.question.validate) {

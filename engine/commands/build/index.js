@@ -21,7 +21,7 @@ const operation = async ({ path, generator, yargs, root = false, payload }) => {
       return null
     }
 
-    const subCommand = await operation({ path: __path, generator, payload })
+    const subCommand = await operation({ path: __path, generator, payload, yargs })
     subCommands.push(subCommand)
   }))
 
@@ -39,13 +39,12 @@ const operation = async ({ path, generator, yargs, root = false, payload }) => {
     }
 
     command.builder = yargs => {
-      commandData.options.forEach(option => formatOptionForYargs({ option, yargs }))
+      fixOptions({ generator, commandOptions: commandData.options, yargs })
       if (commandData.example) {
         yargs.example(commandData.example)
       }
     }
     if (commandData.usage) {
-      // command.usage(commandData.usage)
     }
     commands.push(command)
 
@@ -66,7 +65,8 @@ const operation = async ({ path, generator, yargs, root = false, payload }) => {
 
     if (!root) {
       command.builder = yargs => {
-        commandData.options.forEach(option => formatOptionForYargs({ option, yargs }))
+        fixOptions({ generator, commandOptions: commandData.options, yargs })
+        // commandData.options.forEach(option => formatOptionForYargs({ option, yargs }))
         if (commandData.example) {
           yargs.example(commandData.example)
         }
@@ -92,3 +92,28 @@ const operation = async ({ path, generator, yargs, root = false, payload }) => {
 }
 
 export default operation
+
+
+
+import parseArgv from 'tiny-parse-argv'
+const fixOptions = ({ generator, commandOptions, yargs }) => {
+  let nativeArgv = parseArgv(process.argv)
+  delete nativeArgv["--"]
+  delete nativeArgv["_"]
+  Object.keys(nativeArgv).forEach(n => {
+    generator.payload[n] = nativeArgv[n]
+  })
+
+  const _options = (commandOptions && commandOptions.length)
+    ? commandOptions
+    : []
+  const options = _options.map(option => {
+    const value = nativeArgv[option.name]
+    return {
+      ...option,
+      value
+    }
+  })
+  generator.mergeOptions(options)
+  generator.options.forEach(option => formatOptionForYargs({ option, yargs }))
+}

@@ -12,7 +12,7 @@ export default ({
       description: 'App master key'
     }],
   example: "$0 document --name='Doable'",
-  usage: 'Usage: servable <command>',
+
   handler: async ({ generator }) => {
     const { print, } = generator
 

@@ -10,15 +10,14 @@ export default ({
     global: true
   },
   {
-    name: 'appMasterKey',
+    name: 'destination',
     type: 'string',
-    promptType: 'input',
-    alias: 'm',
-    default: 'MASTER_KEY_TO_CHANGE',
-    description: 'App master key'
+    alias: 'd',
+    message: 'Destination',
+    global: true
   }],
   example: "$0",
-  usage: 'Usage: servable <command>',
+
   handler: async ({ generator }) => {
     const { print, } = generator
 

@@ -2,7 +2,7 @@ import * as AppContent from '../../fractions/app/content/generic/index.js'
 
 export default ({
   name: 'new',
-  description: `Create a Servable app 🐝`,
+  description: `Create a Servable app 🐻`,
   options: [
     {
       name: 'appName',
@@ -33,7 +33,7 @@ export default ({
         // "module": "inquirer"
       },
       alias: 'a',
-      defaultValue: '@servable/parse-server',
+      defaultValue: '@servable/parse-server-adapter',
       message: 'Framework adapter to use',
       validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
     },
@@ -41,14 +41,35 @@ export default ({
       name: 'installDependencies',
     }, {
       name: 'license',
-    }
+    },
+    // {
+    //   name: 'appId',
+    //   type: 'string',
+    //   prompt: {
+    //     "type": 'input',
+    //   },
+    //   alias: 'n',
+    //   defaultValue: 'MyAppID',
+    //   message: 'App name',
+    //   validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
+    // },
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
-  usage: 'Usage: servable <command>',
   handler: async ({ generator, payload }) => {
-    const { print, } = generator
-    print.info('Create a new app 🐻🐝')
-    await AppContent.ask({ generator, payload })
-    await AppContent.write({ generator, payload })
+    generator.ui.drawSectionHeader({
+      type: 'h1',
+      title: `Create a new Servable app with any adapter 🐻🐝🚀`,
+    })
+
+    const passed = await AppContent.ask({ generator, payload })
+    if (!passed) {
+      return
+    }
+
+    await AppContent.write({
+      generator,
+      payload,
+      targetRootPath: payload.destination
+    })
   },
 })

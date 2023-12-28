@@ -7,12 +7,10 @@ export default async ({ path, yargs, options }) => {
   const payload = {}
   const generator = buildGenerator({ payload, options, yargs })
   const { index, commands } = await buildDir({ path: commandsPath, generator, yargs, root: true, payload })
-  // yargs.command(index)
   commands.forEach(command => {
     yargs.command(command)
   })
 
-  const d = yargs.argv
-
+  yargs.argv
   return commands
 }

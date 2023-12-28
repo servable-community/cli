@@ -12,7 +12,7 @@ export default ({
       description: 'Unique protocol id to import'
     }],
   example: "$0 protocol community use --id='protocolable'",
-  usage: 'Usage: servable <command>',
+
   handler: async ({ generator, payload }) => {
     const { print, } = generator
 

@@ -11,20 +11,20 @@ import getById from './askForProtocol/getById.js'
 export default async (props) => {
   const { generator, payload } = props
   generator.ui.drawSectionHeader({
-    generator,
+    type: 'h2',
     title: `App informations 🚀`,
     subTitle: `Servable required general informations.`
   })
 
   await generator.prompt.ask([
     {
+      name: 'destination',
+    },
+    {
       name: 'appName',
     },
     {
       name: 'license',
-    },
-    {
-      name: 'username',
     },
     // {
     //   name: 'adapter',
@@ -54,7 +54,20 @@ export default async (props) => {
   })
   const item = await getById({ id: payload['adapterId'] })
   payload._adapter = item
+  const { index } = item
+  const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
+  if (hasUsage) {
+    generator.ui.drawSectionHeader({
+      title: `${index.id} parameters`,
+      subTitle: `Fill this framework specific parameters.`
+    })
+    await generator.prompt.ask(item.index.usage.parameters.map(a => a.prompt))
+    generator.ui.drawSectionHeader({
+      title: `---`,
+    })
+  }
 
+  return true
   // await askForAppInfos(props)
   // await askForLicense(props)
   // await askForDatabase(props)
