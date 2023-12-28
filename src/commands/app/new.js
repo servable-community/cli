@@ -1,4 +1,4 @@
-import * as AppContent from '../../fractions/app/content/generic/index.js'
+import * as AppContent from '../../fractions/app/content/index.js'
 
 export default ({
   name: 'new',

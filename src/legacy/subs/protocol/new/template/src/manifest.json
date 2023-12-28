@@ -1,7 +1,0 @@
-{
-    "type": "protocol",
-    "mode": "original",
-    "id": "<%= protocolId %>",
-    "description": "<%= protocolDescription %>",
-    "version": "1.0.0"
-}
