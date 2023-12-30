@@ -49,10 +49,17 @@ export default ({
       type: 'number',
       prompt: {
         type: 'input',
-        transformers: [{
-          id: "getPort"
-        }],
-
+        transformers: {
+          in: [{
+            id: "getPort"
+          }],
+          out: [{
+            id: "theme"
+          },
+          {
+            template: "New value: <%= value %>",
+          }]
+        },
       },
       port: { value: 1387 },
       message: 'App port',
