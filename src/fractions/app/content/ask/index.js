@@ -18,6 +18,9 @@ export default async (props) => {
 
   await generator.prompt.ask([
     {
+      name: 'appPort',
+    },
+    {
       name: 'destination',
     },
     {

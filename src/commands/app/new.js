@@ -13,7 +13,8 @@ export default ({
       alias: 'n',
       defaultValue: 'MyAppName',
       message: 'App name',
-      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
+      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
+
     },
     {
       name: 'appDescription',
@@ -23,7 +24,7 @@ export default ({
       },
       defaultValue: 'A Servable app',
       message: 'App description',
-      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
+      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
     },
     {
       name: 'adapterId',
@@ -31,16 +32,36 @@ export default ({
       prompt: {
         "type": 'autocomplete',
         // "module": "inquirer"
+
       },
       alias: 'a',
       defaultValue: '@servable/parse-server-adapter',
       message: 'Framework adapter to use',
-      validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
+      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
     },
     {
       name: 'installDependencies',
     }, {
       name: 'license',
+    },
+    {
+      name: 'appPort',
+      type: 'number',
+      prompt: {
+        type: 'input',
+        transformers: [{
+          id: "getPort"
+        }],
+
+      },
+      port: { value: 1387 },
+      message: 'App port',
+      validators: [{
+        id: 'nonEmpty', params: { maxParams: 12 }
+      },
+      {
+        id: 'isnumber', params: { maxParams: 12 }
+      },]
     },
     // {
     //   name: 'appId',
@@ -69,7 +90,7 @@ export default ({
     await AppContent.write({
       generator,
       payload,
-      targetRootPath: payload.destination
+      destination: payload.destination
     })
   },
 })

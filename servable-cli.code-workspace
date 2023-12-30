@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "../../../packages/adoucoure/clinext/src"
+			"path": "../../../packages/adoucoure/clinext/sdk/src"
 		}
 	],
 	"settings": {

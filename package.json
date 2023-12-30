@@ -79,7 +79,9 @@
     "@clinext/sdk": "^1.0.0",
     "@servable/manifest": "1.15.0",
     "axios": "^1.6.1",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "glob": "^10.3.10",
+    "glob-fs": "^0.1.7"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.2",
