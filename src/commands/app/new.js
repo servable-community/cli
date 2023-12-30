@@ -49,17 +49,6 @@ export default ({
       type: 'number',
       prompt: {
         type: 'input',
-        transformers: {
-          in: [{
-            id: "getPort"
-          }],
-          out: [{
-            id: "theme"
-          },
-          {
-            template: "New value: <%= value %>",
-          }]
-        },
       },
       port: { value: 1387 },
       message: 'App port',
@@ -68,7 +57,18 @@ export default ({
       },
       {
         id: 'isnumber', params: { maxParams: 12 }
-      },]
+      },],
+      transformers: {
+        in: [{
+          id: "getPort"
+        }],
+        out: [{
+          id: "theme"
+        },
+        {
+          template: "New value: <%= value %>",
+        }]
+      },
     },
     // {
     //   name: 'appId',
