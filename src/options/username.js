@@ -7,5 +7,4 @@ export default ({
   alias: 'u',
   message: 'Username',
   defaultValue: 'Abou',
-
 })

@@ -1,5 +1,5 @@
-import getPortOrRandom from "../../../lib/port/getPortOrRandom.js"
-import getPortNear from "../../../lib/port/getPortNear.js"
+import getPortOrRandom from "../../lib/port/getPortOrRandom.js"
+import getPortNear from "../../lib/port/getPortNear.js"
 
 export default ({
   id: "getPort",

@@ -8,7 +8,7 @@ export default async (props) => {
   const { generator, payload, destination } = props
   const destinator = v => v ? `${destination}/${v}` : `${destination}`
 
-  await generator.fs.fractions.copy({
+  await generator.fs.chunks.copy({
     destination,
     source: '**/*',
     data: {
@@ -18,7 +18,7 @@ export default async (props) => {
     }
   })
 
-  // await generator.fs.fractions.copy({
+  // await generator.fs.chunks.copy({
   //   // source: `${__dirname}/template/**/*`,
   //   destination: destinator('mix.json'),
   //   // source: `*.json`,

@@ -1,10 +1,3 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-/**
-* @param {import('yeoman-generator')} generator
-* @param {Object} payload
-*/
 
 import * as dotenv from 'dotenv'
 import axios from "axios"
