@@ -76,10 +76,11 @@
   ],
   "keywords": [],
   "dependencies": {
-    "@clinext/sdk": "^1.0.0",
+    "@clinext/sdk": "^1.4.1",
     "@servable/manifest": "1.15.0",
     "axios": "^1.6.1",
     "dotenv": "^16.0.1",
+    "get-port": "^7.0.0",
     "glob": "^10.3.10",
     "glob-fs": "^0.1.7"
   },
