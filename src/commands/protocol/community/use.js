@@ -13,8 +13,8 @@ export default ({
     }],
   example: "$0 protocol community use --id='protocolable'",
 
-  handler: async ({ generator, payload }) => {
-    const { print, } = generator
+  handler: async ({ toolbox, payload }) => {
+    const { print, } = toolbox
 
     print.info('Use a community protocol 🐻🐝')
 
@@ -28,10 +28,10 @@ export default ({
       choices: ['Clown', 'Other'],
     }
 
-    const f = generator.template.render('<%= people.join(", "); %>', { people: ['geddy', 'neil', 'alex'] })
-    await generator.spawn('git', ['add', '.',])
+    const f = toolbox.template.render('<%= people.join(", "); %>', { people: ['geddy', 'neil', 'alex'] })
+    await toolbox.spawn('git', ['add', '.',])
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await generator.prompt.ask(questions)
+    const { age, shoe, name } = await toolbox.prompt.ask(questions)
   },
 })

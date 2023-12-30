@@ -9,9 +9,9 @@ import getValueFromStore from "../../../../../lib/store/get.js"
 import saveValueToStore from "../../../../../lib/store/save.js"
 
 export default async (props) => {
-    const { generator, payload, initiate = true } = props
+    const { toolbox, payload, initiate = true } = props
     const domain = "registry.servablecommunity.com"
-    generator.log('domain', domain)
+    toolbox.log('domain', domain)
     const username = await getValueFromStore({
         key: 'username',
         domain
@@ -24,7 +24,7 @@ export default async (props) => {
         key: 'sessionToken',
         domain
     })
-    generator.log('username', username,)
+    toolbox.log('username', username,)
     if (username && password && sessionToken) {
         payload.registryUsername = username
         payload.registryPassword = password
@@ -67,7 +67,7 @@ export default async (props) => {
     })
 
     if (!result) {
-        generator.log(`Could not connect to the Servable registry. Please try again later`)
+        toolbox.log(`Could not connect to the Servable registry. Please try again later`)
         return false
     }
 

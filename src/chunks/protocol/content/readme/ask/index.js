@@ -8,13 +8,13 @@ import askForProtocolId from "../../../../../prompts/transverse/askForProtocolId
 import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
     if (!force && payload.promptGroupsPassed.protocolIndex) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Protocol readme`,
         subTitle: ``
     })

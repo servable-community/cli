@@ -32,8 +32,8 @@ export default ({
       global: true
     }],
   example: "$0",
-  handler: async ({ generator }) => {
-    const { print, } = generator
+  handler: async ({ toolbox }) => {
+    const { print, } = toolbox
     print.info('Servable 🐻🐝')
   },
 })

@@ -6,7 +6,7 @@ import protocolIndex from "../../../../../lib/protocolIndex.js"
 
 
 export default async (props) => {
-    const { payload, generator, path, mode } = props
+    const { payload, toolbox, path, mode } = props
 
     try {
 
@@ -15,7 +15,7 @@ export default async (props) => {
             id: payload.registryUniqueRef
         }
         const targetPath = `${payload.targetProtocolPath}/index.json`
-        generator.fs.writeJSON(targetPath, index)
+        toolbox.fs.writeJSON(targetPath, index)
         return true
     } catch (e) {
         console.error(e)

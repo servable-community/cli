@@ -8,7 +8,7 @@ import writeForTriggers from "../../../../shared/triggers/write/index.js"
 
 export default async (props) => {
 
-    const { generator, payload, targetRootPath } = props
+    const { toolbox, payload, targetRootPath } = props
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -16,10 +16,10 @@ export default async (props) => {
     const originator = v => `${__dirname}/template/${v}`
 
     if (payload.classBootstrapFiles) {
-        generator.fs.copy(originator('**/*'), destinator(''))
-        generator.fs.copyTpl(originator('class/index.js'), destinator(`class/index.js`), payload)
-        generator.fs.copyTpl(originator('index.json'), destinator(`index.json`), payload)
-        generator.fs.copyTpl(originator('README.md'), destinator(`README.md`), payload)
+        toolbox.fs.copy(originator('**/*'), destinator(''))
+        toolbox.fs.copyTpl(originator('class/index.js'), destinator(`class/index.js`), payload)
+        toolbox.fs.copyTpl(originator('index.json'), destinator(`index.json`), payload)
+        toolbox.fs.copyTpl(originator('README.md'), destinator(`README.md`), payload)
     }
 
     await writeForTriggers({ ...props })

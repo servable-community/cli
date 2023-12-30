@@ -3,7 +3,7 @@ import getPortNear from "../../lib/port/getPortNear.js"
 
 export default ({
   id: "getPort",
-  handler: async ({ generator, question, }) => {
+  handler: async ({ toolbox, question, }) => {
     const { port } = question
     const { value, type } = port
     let _port = value

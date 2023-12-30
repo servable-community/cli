@@ -83,19 +83,19 @@ export default ({
     // },
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
-  handler: async ({ generator, payload }) => {
-    generator.ui.drawSectionHeader({
+  handler: async ({ toolbox, payload }) => {
+    toolbox.ui.drawSectionHeader({
       type: 'h1',
       title: `Create a new Servable app with any adapter 🐻🐝🚀`,
     })
 
-    const passed = await AppContent.ask({ generator, payload })
+    const passed = await AppContent.ask({ toolbox, payload })
     if (!passed) {
       return
     }
 
     await AppContent.write({
-      generator,
+      toolbox,
       payload,
       destination: payload.destination
     })

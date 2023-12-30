@@ -5,14 +5,14 @@
 
 ![logo](/static/img/icon.png)
 
-[![npm Package](https://img.shields.io/npm/v/generator-servable.svg?style=flat-square)](https://www.npmjs.org/package/generator-servable)
-[![NPM Downloads](https://img.shields.io/npm/dm/generator-servable.svg)](https://npmjs.org/package/generator-servable)
-[![Build Status](https://github.com/servable-community/generator-servable/actions/workflows/release.yml/badge.svg)](https://github.com/servable-community/generator-servable/actions/tests.yml)
+[![npm Package](https://img.shields.io/npm/v/toolbox-servable.svg?style=flat-square)](https://www.npmjs.org/package/toolbox-servable)
+[![NPM Downloads](https://img.shields.io/npm/dm/toolbox-servable.svg)](https://npmjs.org/package/toolbox-servable)
+[![Build Status](https://github.com/servable-community/toolbox-servable/actions/workflows/release.yml/badge.svg)](https://github.com/servable-community/toolbox-servable/actions/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 
-We have written a Yeoman generator to help get you started. We plan to add templates for most extension/customization types into this.
+We have written a Yeoman toolbox to help get you started. We plan to add templates for most extension/customization types into this.
 
 ## Install
 
@@ -34,7 +34,7 @@ To launch the cli simply type:
 servable
 ```
 
-![The command generator](/static/img/s1.png)
+![The command toolbox](/static/img/s1.png)
 
 ### Command line
 
@@ -45,14 +45,14 @@ Usage:
 Generates Servable components.
 
 Options:
-  -h,   --help                      # Print the generator's options and usage
+  -h,   --help                      # Print the toolbox's options and usage
         --skip-cache                # Do not remember prompt answers                                 Default: false
         --skip-install              # Do not automatically install dependencies                      Default: false
         --force-install             # Fail on install dependencies error                             Default: false
         --ask-answered              # Show prompts for already configured options                    Default: false
   -q,   --quick                     # Quick mode, skip all optional prompts and use defaults
   -o,   --open                      # Open the generated project in Visual Studio Code
-  -t,   --generatorType             # app, class, newprotocol, ejectprotocol, protocol, protocol...
+  -t,   --toolboxType             # app, class, newprotocol, ejectprotocol, protocol, protocol...
   -m,   --appMasterKey              # App master key                                                 Default: MASTER_KEY_TO_CHANGE
   -j,   --appJavascriptKey          # App javascript key                                             Default: JAVASCRIPT_KEY_TO_CHANGE
   -n,   --appName                   # App name                                                       Default: No name
@@ -102,7 +102,7 @@ Example usages:
 
 **Servable** is a Node JS framework built on top of Express JS and Parse Server and tailored for protocols. It provides a concise, easy to use and scalable template to get the best of Parse Server and protocols.
 
-Servable at its core is a server template that uses the generator-servable to orchestrate the different protocols used in an application. Servable streamlines the server development by separating every "groupable" logic to be a protocol, so that it is organically extracted from the base code and possibly migrated into its own package. By doing so, Servable enforces a clear separation of concerns pattern out of the box.
+Servable at its core is a server template that uses the toolbox-servable to orchestrate the different protocols used in an application. Servable streamlines the server development by separating every "groupable" logic to be a protocol, so that it is organically extracted from the base code and possibly migrated into its own package. By doing so, Servable enforces a clear separation of concerns pattern out of the box.
 
 Main features:
 - Quick start and Plug & Play Node JS framework

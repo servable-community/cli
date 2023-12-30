@@ -5,10 +5,10 @@
 // import writeClassContent from "../../../../class/content/generic/write/index.withprotocol.js"
 
 export default async (props) => {
-  const { generator, payload, destination } = props
+  const { toolbox, payload, destination } = props
   const destinator = v => v ? `${destination}/${v}` : `${destination}`
 
-  await generator.fs.chunks.copy({
+  await toolbox.fs.chunks.copy({
     destination,
     source: '**/*',
     data: {
@@ -18,7 +18,7 @@ export default async (props) => {
     }
   })
 
-  // await generator.fs.chunks.copy({
+  // await toolbox.fs.chunks.copy({
   //   // source: `${__dirname}/template/**/*`,
   //   destination: destinator('mix.json'),
   //   // source: `*.json`,
@@ -35,7 +35,7 @@ export default async (props) => {
 
 
 
-  // await generator.fs.copyFull({
+  // await toolbox.fs.copyFull({
   //   // source: `${__dirname}/template/**/*`,
   //   destination: destinator('temp'),
   //   // source: `*.json`,

@@ -10,7 +10,7 @@ import writeForTriggers from "../../../../shared/triggers/write/index.js"
 
 export default async (props) => {
 
-    const { generator, payload, targetRootPath } = props
+    const { toolbox, payload, targetRootPath } = props
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -19,7 +19,7 @@ export default async (props) => {
 
     const destinator = v => `${targetRootPath}/${v}`
 
-    generator.fs.copy(`${__dirname}/template/**/*`, destinator(''))
+    toolbox.fs.copy(`${__dirname}/template/**/*`, destinator(''))
 
 
     await writeProtocolIndex({ ...props, destinator })

@@ -9,14 +9,14 @@ import search from './api/search.js'
 import getById from './api/getById.js'
 
 export default async (props) => {
-  const { generator, payload } = props
-  generator.ui.drawSectionHeader({
+  const { toolbox, payload } = props
+  toolbox.ui.drawSectionHeader({
     type: 'h2',
     title: `App informations 🚀`,
     subTitle: `Servable required general informations.`
   })
 
-  await generator.prompt.ask([
+  await toolbox.prompt.ask([
     {
       name: 'appPort',
     },
@@ -37,7 +37,7 @@ export default async (props) => {
     // },
   ])
 
-  await generator.prompt.ask({
+  await toolbox.prompt.ask({
     name: 'adapterId',
     suggestOnly: false,
     searchText: 'Searching...',
@@ -60,12 +60,12 @@ export default async (props) => {
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
   if (hasUsage) {
-    generator.ui.drawSectionHeader({
+    toolbox.ui.drawSectionHeader({
       title: `${index.id} parameters`,
       subTitle: `Fill this framework specific parameters.`
     })
-    await generator.prompt.ask(item.index.usage.parameters.map(a => a.prompt))
-    generator.ui.drawSectionHeader({
+    await toolbox.prompt.ask(item.index.usage.parameters.map(a => a.prompt))
+    toolbox.ui.drawSectionHeader({
       title: `---`,
     })
   }

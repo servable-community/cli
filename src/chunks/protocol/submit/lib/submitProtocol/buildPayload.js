@@ -18,7 +18,7 @@ export default async (props) => {
 
     const documentation = await documentProtocol({ path, write: false })
 
-    // generator.log('payload', { manifest, documentation, index })
+    // toolbox.log('payload', { manifest, documentation, index })
     return { manifest, documentation, index }
 }
 

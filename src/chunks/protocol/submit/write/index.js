@@ -8,7 +8,7 @@ import updateProtocol from "../lib/updateProtocol/index.js"
 
 export default async (props) => {
 
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -25,7 +25,7 @@ export default async (props) => {
 
     const submitted = await submitProtocol({
         path,
-        generator,
+        toolbox,
         payload,
         mode: payload.registrySubmitMode,
         uniqueRef: payload.registryUniqueRef

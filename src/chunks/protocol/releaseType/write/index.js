@@ -6,7 +6,7 @@ import { dirname } from "path"
 
 export default async (props) => {
 
-    const { generator, payload, targetRootPath } = props
+    const { toolbox, payload, targetRootPath } = props
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -16,10 +16,10 @@ export default async (props) => {
     const localPath = v => `${__dirname}/template/${v}`
     switch (payload.releaseType) {
         case 'github': {
-            generator.fs.copy(localPath('github/workflows/release.yml'), destinator(`.github/workflows/release.yml`,), payload)
+            toolbox.fs.copy(localPath('github/workflows/release.yml'), destinator(`.github/workflows/release.yml`,), payload)
         } break
         case 'gitlab': {
-            generator.fs.copy(localPath('gitlab-ci.yml'), destinator(`.gitlab-ci.yml`,), payload)
+            toolbox.fs.copy(localPath('gitlab-ci.yml'), destinator(`.gitlab-ci.yml`,), payload)
         } break
         default: {
 

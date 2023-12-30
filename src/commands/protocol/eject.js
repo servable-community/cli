@@ -29,8 +29,8 @@ export default ({
       describe: "Contact phone",
     },
   },
-  handler: async ({ generator }) => {
-    const { print, } = generator
+  handler: async ({ toolbox }) => {
+    const { print, } = toolbox
 
     print.info('Eject js 🐻🐝')
 
@@ -46,6 +46,6 @@ export default ({
 
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await generator.prompt.ask(questions)
+    const { age, shoe, name } = await toolbox.prompt.ask(questions)
   },
 })

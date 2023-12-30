@@ -8,14 +8,14 @@ import create from "./create.js"
 import update from './update.js'
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
 
     const index = await protocolIndex(payload.targetProtocolPath)
     if (!index || !index.registry || !index.registry.id) {
         return create(props)
     }
 
-    generator.log(`Your protocol ${index.id} has already been submitted as ${index.registry.id}`)
+    toolbox.log(`Your protocol ${index.id} has already been submitted as ${index.registry.id}`)
     if ((await askForGeneric({
         ...props, options: {
             ...props.options,

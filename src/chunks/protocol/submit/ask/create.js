@@ -7,7 +7,7 @@ import uniqueRefExists from '../lib/uniqueRefExists/get.js'
 import askRegistryLogin from '../../../shared/registry/login/ask/index.js'
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
     payload.registrySubmitMode = 'create'
     const index = await protocolIndex(payload.targetProtocolPath)
 
@@ -15,7 +15,7 @@ export default async (props) => {
 
     const exists = await uniqueRefExists({ protocolId: id })
     if (exists) {
-        generator.log(`A protocol with the id ${index.id} has already been submitted. Please change the protocol id.`)
+        toolbox.log(`A protocol with the id ${index.id} has already been submitted. Please change the protocol id.`)
         return false
     }
     payload.registryUniqueRef = id

@@ -7,7 +7,7 @@ import writeReleaseType from "../../releaseType/write/index.js"
 
 export default async (props) => {
 
-    const { generator, payload, targetRootPath } = props
+    const { toolbox, payload, targetRootPath } = props
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -21,20 +21,20 @@ export default async (props) => {
     payload.doubleDestination = targetRootPath
     // updateDestination(targetPath)
     const localPath = v => `${__dirname}/template/${v}`
-    generator.fs.copyTpl(localPath('package.json'), destinator(`package.json`), payload)
-    generator.fs.copy(localPath('gitignore'), destinator(`.gitignore`))
-    generator.fs.copy(localPath('npmignore'), destinator(`.npmignore`))
-    generator.fs.copy(localPath('editorconfig'), destinator(`.editorconfig`,))
-    generator.fs.copy(localPath('eslintrc'), destinator(`.eslintrc`,))
-    generator.fs.copy(localPath('prettierrc'), destinator(`.prettierrc`,))
-    // generator.fs.copy(localPath('yarnrc'), destinator(`.yarnrc`,)
-    generator.fs.copy(localPath('eslintignore'), destinator(`.eslintignore`,))
-    // generator.fs.copy(localPath('npmrc-pnpm'), destinator(`.npmrc-pnpm`,)
-    generator.fs.copy(localPath('releaserc'), destinator(`.releaserc`,))
-    generator.fs.copy(localPath('LICENSE'), destinator(`LICENSE`,))
-    generator.fs.copy(localPath('jest.config.json'), destinator(`jest.config.json`,))
+    toolbox.fs.copyTpl(localPath('package.json'), destinator(`package.json`), payload)
+    toolbox.fs.copy(localPath('gitignore'), destinator(`.gitignore`))
+    toolbox.fs.copy(localPath('npmignore'), destinator(`.npmignore`))
+    toolbox.fs.copy(localPath('editorconfig'), destinator(`.editorconfig`,))
+    toolbox.fs.copy(localPath('eslintrc'), destinator(`.eslintrc`,))
+    toolbox.fs.copy(localPath('prettierrc'), destinator(`.prettierrc`,))
+    // toolbox.fs.copy(localPath('yarnrc'), destinator(`.yarnrc`,)
+    toolbox.fs.copy(localPath('eslintignore'), destinator(`.eslintignore`,))
+    // toolbox.fs.copy(localPath('npmrc-pnpm'), destinator(`.npmrc-pnpm`,)
+    toolbox.fs.copy(localPath('releaserc'), destinator(`.releaserc`,))
+    toolbox.fs.copy(localPath('LICENSE'), destinator(`LICENSE`,))
+    toolbox.fs.copy(localPath('jest.config.json'), destinator(`jest.config.json`,))
 
-    // generator.fs.copyTpl(localPath('README.md'), destinator(`README.md`), payload)
+    // toolbox.fs.copyTpl(localPath('README.md'), destinator(`README.md`), payload)
 
     await writeReleaseType(props)
 }

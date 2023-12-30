@@ -6,7 +6,7 @@ export default ({
   ],
   example: "$0 registry",
 
-  handler: async ({ generator, payload }) => {
-    generator.print.info('Registry 🐻🐝')
+  handler: async ({ toolbox, payload }) => {
+    toolbox.print.info('Registry 🐻🐝')
   },
 })
