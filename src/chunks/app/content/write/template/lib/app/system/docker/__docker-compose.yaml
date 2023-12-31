@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 networks:
   app:
     driver: bridge
@@ -20,7 +20,7 @@ services:
   <%_ if (appDistributionType === 'distributed' ) { _%>
   utils-mongo:
     image: mongo:4
-    command: "--bind_ip_all --keyFile data/replica.key --replSet rs0"
+    command: '--bind_ip_all --keyFile data/replica.key --replSet rs0'
     restart: on-failure
     environment:
       - PUID=1000
@@ -30,7 +30,7 @@ services:
       - MONGO_INITDB_DATABASE=utils
       - MONGO_REPLICA_SET_NAME=rs0
     healthcheck:
-      test: test $$(echo "rs.initiate().ok || rs.status().ok" | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+      test: test $$(echo 'rs.initiate().ok || rs.status().ok' | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
       interval: 10s
       start_period: 30s
     ports:

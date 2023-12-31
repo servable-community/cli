@@ -12,30 +12,15 @@ export default async (props) => {
     }
   })
 
-  // await toolbox.fs.chunks.copy({
-  //   // source: `${__dirname}/template/**/*`,
-  //   destination: destinator('mix.json'),
-  //   // source: `*.json`,
-  //   source: 'jsconfig.json',
-  //   data: {
-  //     ...payload,
-  //     appDescription: "My servable app",
-  //     authorName: "My name",
-  //   }
-  // })
-
-
-
-
-
-
-  // await toolbox.fs.copyFull({
-  //   // source: `${__dirname}/template/**/*`,
-  //   destination: destinator('temp'),
-  //   // source: `*.json`,
-  //   source: '**/*.{png,jpeg}'
-  // })
-
-
-
+  if (payload._adapter && payload._adapter.dockercompose) {
+    await toolbox.fs.chunks.writeText({
+      destination: `${destination}/lib/app/system/docker/docker-compose.yaml`,
+      text: payload._adapter.dockercompose,
+      data: {
+        ...payload,
+        appDescription: "My servable app",
+        maxUploadSize: '100mb',
+      }
+    })
+  }
 }

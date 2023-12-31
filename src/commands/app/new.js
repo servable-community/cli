@@ -71,12 +71,12 @@ export default ({
         in: [{
           id: "getPort"
         }],
-        out: [{
-          id: "theme"
-        },
-        {
-          template: "New value: <%= value %>",
-        }]
+        // out: [{
+        //   id: "theme"
+        // },
+        // {
+        //   template: "New value: <%= value %>",
+        // }]
       },
     },
     // {
