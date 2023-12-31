@@ -55,7 +55,7 @@ export default async (props) => {
       return name
     }
   })
-  const item = await getById({ id: payload['adapterId'] })
+  const item = await getById({ id: payload['adapterId'], })
   payload._adapter = item
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)

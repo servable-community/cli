@@ -27,10 +27,14 @@
       //   "use",
       //   // "eject",
       // ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
       "args": [
         "app",
         "new",
-        "-q",
+        // "-q",
         "--adapter",
         "@servable/parse-server-adapter",
         "--destination",
@@ -46,7 +50,7 @@
       ],
       "runtimeArgs": [
         // "--trace-warnings",
-        // "--require=dotenv/config",
+        "--require=dotenv/config",
         "--nolazy",
         "--expose-gc",
         "--inspect-brk",

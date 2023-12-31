@@ -5,12 +5,7 @@ dotenv.config()
 
 
 export default async ({ id }) => {
-
-
-  //const baseUrl = "https://api.registry.servablecommunity.com"
-  const baseUrl = "http://localhost:1387"
-  const url = `${baseUrl}/adapter/byuniqueref`
-
+  const url = `${process.env.PROTOCOL_API_URI}/adapter/byuniqueref`
   try {
     const result = await axios({
       method: "GET",

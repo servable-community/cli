@@ -8,9 +8,7 @@ export default async (answers, input = '') => {
   const searchTerm = input
   const page = 0
 
-  //const baseUrl = "https://api.registry.servablecommunity.com"
-  const baseUrl = "http://localhost:1387"
-  const url = `${baseUrl}/adapter/search`
+  const url = `${process.env.PROTOCOL_API_URI}/adapter/search`
 
   try {
     const result = await axios({
