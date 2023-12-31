@@ -7,7 +7,7 @@ export default ({
     const { params = {} } = item
     const { type = 'near' } = params
     const value = question.defaultValue
-    let _port = value
+    let _port = value ? value : 5000
     switch (type) {
       case 'random': {
         _port = await getPortOrRandom({ port: _port })

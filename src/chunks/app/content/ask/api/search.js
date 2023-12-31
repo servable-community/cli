@@ -32,8 +32,8 @@ export default async (answers, input = '') => {
       description: res.index.description,
     }))
   } catch (e) {
-    console.error(e)
+    console.info("Error searching for adapter", e.message)
   }
 
-  return null
+  return []
 }

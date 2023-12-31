@@ -43,19 +43,15 @@ export default async (props) => {
     searchText: 'Searching...',
     emptyText: 'Nothing found!',
     source: search,
-    pageSize: 4,
-    validate(val) {
-      return val ? true : 'Type something!'
-    },
-    transformer: (name,) => {
-      if (!name) {
-        return name
-      }
-
-      return name
-    }
+    pageSize: 10,
   })
+
   const item = await getById({ id: payload['adapterId'], })
+  if (!item) {
+    console.log('Could not find adapter in registry.')
+    return false
+  }
+
   payload._adapter = item
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)

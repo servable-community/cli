@@ -21,7 +21,7 @@ export default async ({ id }) => {
 
     return result.data
   } catch (e) {
-    console.error(e)
+    console.info("Error loading adapter", e.message)
   }
 
   return null
