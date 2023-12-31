@@ -29,12 +29,12 @@ export default async (props) => {
     {
       name: 'license',
     },
-    // {
-    //   name: 'adapter',
-    // },
-    // {
-    //   name: 'appDescription',
-    // },
+    {
+      name: 'packageManager',
+    },
+    {
+      name: 'gitInit',
+    },
   ])
 
   await toolbox.prompt.ask({
@@ -71,17 +71,6 @@ export default async (props) => {
   }
 
   return true
-  // await askForAppInfos(props)
-  // await askForLicense(props)
-  // await askForDatabase(props)
-  // await askForAppCache(props)
-  // await askForLiveQueryServer(props)
-  // await askForLocalMinioPrompts(props)
-  // await askForDashboard(props)
-  // await askForDistribution(props)
-  // await askForConfiguration(props)
-  // await askForPackageManager(props)
-  // await askForGit(props)
 }
 
 

@@ -45,6 +45,15 @@ export default ({
       name: 'license',
     },
     {
+      name: 'packageManager',
+    },
+    {
+      name: 'gitInit',
+    },
+    {
+      name: 'destination',
+    },
+    {
       name: 'appPort',
       type: 'number',
       prompt: {

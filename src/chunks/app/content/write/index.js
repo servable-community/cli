@@ -1,8 +1,3 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-
-// import writeClassContent from "../../../../class/content/generic/write/index.withprotocol.js"
 
 export default async (props) => {
   const { toolbox, payload, destination } = props
@@ -14,7 +9,6 @@ export default async (props) => {
     data: {
       ...payload,
       appDescription: "My servable app",
-      authorName: "My name"
     }
   })
 
