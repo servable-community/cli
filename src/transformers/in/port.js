@@ -3,9 +3,10 @@ import getPortNear from "../../lib/port/getPortNear.js"
 
 export default ({
   id: "getPort",
-  handler: async ({ toolbox, question, }) => {
-    const { port } = question
-    const { value, type } = port
+  handler: async ({ toolbox, question, item }) => {
+    const { params = {} } = item
+    const { type = 'near' } = params
+    const value = question.defaultValue
     let _port = value
     switch (type) {
       case 'random': {

@@ -59,7 +59,7 @@ export default ({
       prompt: {
         type: 'input',
       },
-      port: { value: 1387 },
+      defaultValue: 1387,
       message: 'App port',
       validators: [{
         id: 'nonEmpty', params: { maxParams: 12 }
