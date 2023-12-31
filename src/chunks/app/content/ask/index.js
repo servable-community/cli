@@ -64,7 +64,7 @@ export default async (props) => {
       title: `${index.id} parameters`,
       subTitle: `Fill this framework specific parameters.`
     })
-    await toolbox.prompt.ask(item.index.usage.parameters.map(a => a.prompt))
+    await toolbox.prompt.ask(item.index.usage.parameters)
     toolbox.ui.drawSectionHeader({
       title: `---`,
     })
