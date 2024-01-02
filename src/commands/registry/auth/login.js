@@ -66,12 +66,12 @@ export default ({
       return false
     }
 
-    toolbox.payload.registrySessionToken = result.registrySessionToken
+    toolbox.payload.registrySessionToken = result.sessionToken
 
     await toolbox.store.save({
       key: 'registrySessionToken',
       domain,
-      value: toolbox.payload.sessionToken
+      value: toolbox.payload.registrySessionToken
     })
 
     return true

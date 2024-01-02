@@ -15,7 +15,7 @@
       "args": [
         "registry",
         "auth",
-        "login",
+        "logout",
       ],
       "env": {
         "NODE_ENV": "development"
