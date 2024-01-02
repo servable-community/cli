@@ -13,7 +13,7 @@ export default async (props) => {
   })
 
   if (payload._adapter && payload._adapter.dockercompose) {
-    await toolbox.fs.chunks.writeText({
+    await toolbox.fs.writeText({
       destination: `${destination}/lib/app/system/docker/docker-compose.yaml`,
       text: payload._adapter.dockercompose,
       data: {

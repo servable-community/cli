@@ -82,7 +82,8 @@
     "dotenv": "^16.0.1",
     "get-port": "^7.0.0",
     "glob": "^10.3.10",
-    "glob-fs": "^0.1.7"
+    "glob-fs": "^0.1.7",
+    "netrc": "^0.1.4"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.2",
