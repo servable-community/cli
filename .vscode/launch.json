@@ -7,52 +7,20 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch",
+      "name": "Login to registry",
       "skipFiles": [
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/src/app.js",
-      // "args": [
-      //   "protocol",
-      //   "eject",
-      // ],
-      // "args": [
-      // ],
-      // "args": [
-      //   "document",
-      // ],
-      // "args": [
-      //   "protocol",
-      //   "community",
-      //   "use",
-      //   // "eject",
-      // ],
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "envFile": "${workspaceFolder}/.env.development",
       "args": [
         "registry",
         "auth",
         "login",
       ],
-      // "args": [
-      //   "app",
-      //   "new",
-      //   // "-q",
-      //   "--adapter",
-      //   "@servable/parse-server-adapter",
-      //   "--destination",
-      //   "/Users/anak/YourouNak/development/servable/_lab/test",
-      //   "--appId",
-      //   "MyApp",
-      //   "--appMasterKey",
-      //   "OINOINS-DSODISOIN-EZOINOZN",
-      //   // "-h",
-      //   // "-n",
-      //   // "Mix",
-      //   // "pp"
-      // ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
       "runtimeArgs": [
         // "--trace-warnings",
         "--require=dotenv/config",
@@ -72,5 +40,88 @@
         "${workspaceFolder}/build/**/*.js"
       ]
     }
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "New app",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/app.js",
+      "args": [
+        "app",
+        "new",
+        "-q",
+        "--adapter",
+        "@servable/parse-server-adapter",
+        "--destination",
+        "/Users/anak/YourouNak/development/servable/_lab/test",
+        "--appId",
+        "MyApp",
+        "--appMasterKey",
+        "OINOINS-DSODISOIN-EZOINOZN",
+        // "-h",
+        // "-n",
+        // "Mix",
+        // "pp"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
+      "runtimeArgs": [
+        // "--trace-warnings",
+        "--require=dotenv/config",
+        "--nolazy",
+        "--expose-gc",
+        "--inspect-brk",
+        "--experimental-modules",
+        "--es-module-specifier-resolution=node",
+        "--experimental-specifier-resolution=node"
+        //"--unhandled-rejections=strict"
+      ],
+      // "preLaunchTask": "tsc: build - tsconfig.json",
+      // "sourceMaps": true,
+      "smartStep": true,
+      "console": "integratedTerminal",
+      "outFiles": [
+        "${workspaceFolder}/build/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Eject protocol",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/app.js",
+      "args": [
+        "protocol",
+        "eject",
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
+      "runtimeArgs": [
+        // "--trace-warnings",
+        "--require=dotenv/config",
+        "--nolazy",
+        "--expose-gc",
+        "--inspect-brk",
+        "--experimental-modules",
+        "--es-module-specifier-resolution=node",
+        "--experimental-specifier-resolution=node"
+        //"--unhandled-rejections=strict"
+      ],
+      // "preLaunchTask": "tsc: build - tsconfig.json",
+      // "sourceMaps": true,
+      "smartStep": true,
+      "console": "integratedTerminal",
+      "outFiles": [
+        "${workspaceFolder}/build/**/*.js"
+      ]
+    },
   ]
 }

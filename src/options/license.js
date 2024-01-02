@@ -1,10 +1,7 @@
 export default ({
   name: 'license',
   type: 'string',
-  prompt: {
-    "type": 'list',
-    "module": "inquirer"
-  },
+  promptType: 'list',
   alias: 'l',
   defaultValue: 'MIT',
   message: 'License',

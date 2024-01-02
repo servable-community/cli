@@ -1,9 +1,7 @@
 export default ({
   name: 'registryUsername',
   type: 'string',
-  prompt: {
-    "type": 'input',
-  },
+  promptType: 'input',
   alias: 'u',
   message: 'Username',
   // validators: [{}]

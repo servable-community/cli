@@ -8,9 +8,19 @@ export default ({
   options: [
     {
       name: 'registryUsername',
+      storeValue: true,
+      loadFromStoreOnInit: true,
+      storeDomain: process.env.SERVABLE_API_HOST
     },
     {
       name: 'registryPassword',
+      storeDomain: process.env.SERVABLE_API_HOST
+    },
+    {
+      name: 'registrySessionToken',
+      storeValue: true,
+      loadFromStoreOnInit: true,
+      storeDomain: process.env.SERVABLE_API_HOST
     },
   ],
   example: "$0 registry auth login",
@@ -20,40 +30,29 @@ export default ({
       title: `Login 🐻🐝🚀`,
     })
 
-    const domain = toolbox.env.SERVABLE_API
-    toolbox.print.info('domain', domain)
+    const domain = toolbox.env.SERVABLE_API_HOST
 
-    const username = await toolbox.store.get({
-      key: 'username',
-      domain
-    })
-    const password = await toolbox.store.get({
-      key: 'password',
-      domain
-    })
-    let sessionToken = await toolbox.store.get({
-      key: 'sessionToken',
-      domain
-    })
-
-    toolbox.print.info('username', username,)
+    const username = toolbox.payload.registryUsername
+    const password = toolbox.payload.registryPassword
+    const sessionToken = toolbox.payload.sessionToken
 
     if (username && password && sessionToken) {
       toolbox.payload.registryUsername = username
       toolbox.payload.registryPassword = password
       toolbox.payload.sessionToken = sessionToken
-
       return true
     }
 
     await toolbox.prompt.ask([
       {
         name: 'registryUsername',
-        defaultValue: username
+        defaultValue: username,
+        store: true
       },
       {
         name: 'registryPassword',
-        defaultValue: password
+        defaultValue: password,
+        store: true
       },
     ])
 
@@ -67,21 +66,10 @@ export default ({
       return false
     }
 
-    toolbox.payload.sessionToken = result.sessionToken
+    toolbox.payload.registrySessionToken = result.registrySessionToken
 
     await toolbox.store.save({
-      key: 'username',
-      domain,
-      value: toolbox.payload.registryUsername
-    })
-
-    await toolbox.store.save({
-      key: 'password',
-      domain,
-      value: toolbox.payload.registryPassword
-    })
-    await toolbox.store.save({
-      key: 'sessionToken',
+      key: 'registrySessionToken',
       domain,
       value: toolbox.payload.sessionToken
     })
@@ -92,7 +80,7 @@ export default ({
 
 
 const doLogin = async ({ username, password, }) => {
-  const url = `${process.env.SERVABLE_API}/user/login`
+  const url = `${process.env.SERVABLE_API_HOST}/user/login`
 
   try {
     const result = await axios({

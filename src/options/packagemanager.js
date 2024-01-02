@@ -1,10 +1,7 @@
 export default ({
   name: 'packageManager',
   type: 'string',
-  prompt: {
-    "type": 'list',
-    "module": "inquirer"
-  },
+  promptType: 'list',
   alias: 'p',
   defaultValue: 'yarn',
   message: "Package manager ('npm', 'yarn' or 'pnpm')",

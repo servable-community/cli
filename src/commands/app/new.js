@@ -7,9 +7,7 @@ export default ({
     {
       name: 'appName',
       type: 'string',
-      prompt: {
-        "type": 'input',
-      },
+      promptType: 'input',
       alias: 'n',
       defaultValue: 'MyAppName',
       message: 'App name',
@@ -19,9 +17,7 @@ export default ({
     {
       name: 'appDescription',
       type: 'string',
-      prompt: {
-        "type": 'input',
-      },
+      promptType: 'input',
       defaultValue: 'A Servable app',
       message: 'App description',
       validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
@@ -82,9 +78,7 @@ export default ({
     // {
     //   name: 'appId',
     //   type: 'string',
-    //   prompt: {
-    //     "type": 'input',
-    //   },
+    // promptType: 'input',
     //   alias: 'n',
     //   defaultValue: 'MyAppID',
     //   message: 'App name',

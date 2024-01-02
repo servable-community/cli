@@ -1,9 +1,7 @@
 export default ({
   name: 'registryPassword',
   type: 'string',
-  prompt: {
-    "type": 'password',
-  },
+  promptType: 'password',
   alias: 'u',
   message: 'Password',
   // validators: [{
