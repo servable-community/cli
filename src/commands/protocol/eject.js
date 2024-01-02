@@ -1,51 +1,35 @@
 
 export default ({
+  _type: "command",
   name: 'eject',
-  description: 'Eject a protocol',
-  options: {
-    'appMasterKey': {
-      type: 'string',
-      promptType: 'input',
-      alias: 'm',
-      default: 'MASTER_KEY_TO_CHANGE',
-      description: 'App master key'
+  description: 'Eject a protocol 🐝',
+  options: [
+    {
+      name: 'destination',
     },
-    'appJavascriptKey': {
-      type: 'string',
-      promptType: 'input',
-      alias: 'j',
-      default: 'JAVASCRIPT_KEY_TO_CHANGE',
-      description: 'App javascript key'
+    {
+      name: 'installDependencies',
+    }, {
+      name: 'license',
     },
-  },
-  params: {
-    name: {
-      type: "string",
-      demandOption: true,
-      describe: "Contact name",
+    {
+      name: 'packageManager',
     },
-    phone: {
-      type: "string",
-      describe: "Contact phone",
+    {
+      name: 'gitInit',
     },
-  },
-  handler: async ({ toolbox }) => {
-    const { print, } = toolbox
+  ],
+  example: "$0 protocol eject",
+  handler: async ({ toolbox, }) => {
+    toolbox.ui.drawSectionHeader({
+      type: 'h1',
+      title: `Eject a protocol 🐻🐝🚀`,
+    })
 
-    print.info('Eject js 🐻🐝')
-
-    const askAge = { type: 'input', name: 'age', message: 'How old are you?' }
-    const askName = { type: 'input', name: 'name', message: 'Your name?', initial: 'Abou' }
-    // multiple choice
-    const askShoe = {
-      type: 'select',
-      name: 'shoe',
-      message: 'What shoes are you wearing?',
-      choices: ['Clown', 'Other'],
-    }
-
-    // ask a series of questions
-    const questions = [askAge, askShoe, askName]
-    const { age, shoe, name } = await toolbox.prompt.ask(questions)
+    await toolbox.prompt.ask([
+      {
+        name: 'destination',
+      },
+    ])
   },
 })

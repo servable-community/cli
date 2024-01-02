@@ -1,5 +1,7 @@
 
 export default ({
+  type: "tranformer",
+  position: "out",
   id: "theme",
   handler: async ({ value,
   }) => {

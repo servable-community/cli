@@ -39,7 +39,42 @@
       "outFiles": [
         "${workspaceFolder}/build/**/*.js"
       ]
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Eject a protocol",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/app.js",
+      "args": [
+        "protocol",
+        "eject",
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
+      "runtimeArgs": [
+        // "--trace-warnings",
+        "--require=dotenv/config",
+        "--nolazy",
+        "--expose-gc",
+        "--inspect-brk",
+        "--experimental-modules",
+        "--es-module-specifier-resolution=node",
+        "--experimental-specifier-resolution=node"
+        //"--unhandled-rejections=strict"
+      ],
+      // "preLaunchTask": "tsc: build - tsconfig.json",
+      // "sourceMaps": true,
+      "smartStep": true,
+      "console": "integratedTerminal",
+      "outFiles": [
+        "${workspaceFolder}/build/**/*.js"
+      ]
+    },
     {
       "type": "node",
       "request": "launch",

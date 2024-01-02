@@ -1,6 +1,7 @@
 import * as AppContent from '../../chunks/app/content/index.js'
 
 export default ({
+  type: "command",
   name: 'new',
   description: `Create a Servable app 🐻`,
   options: [
@@ -86,21 +87,21 @@ export default ({
     // },
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
-  handler: async ({ toolbox, payload }) => {
+  handler: async ({ toolbox, }) => {
     toolbox.ui.drawSectionHeader({
       type: 'h1',
       title: `Create a new Servable app with any adapter 🐻🐝🚀`,
     })
 
-    const passed = await AppContent.ask({ toolbox, payload })
+    const passed = await AppContent.ask({ toolbox, })
     if (!passed) {
       return
     }
 
     await AppContent.write({
       toolbox,
-      payload,
-      destination: payload.destination
+      payload: toolbox.payload,
+      destination: toolbox.payload.destination
     })
   },
 })

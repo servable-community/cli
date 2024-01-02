@@ -9,7 +9,7 @@ import search from './api/search.js'
 import getById from './api/getById.js'
 
 export default async (props) => {
-  const { toolbox, payload } = props
+  const { toolbox, } = props
   toolbox.ui.drawSectionHeader({
     type: 'h2',
     title: `App informations 🚀`,
@@ -46,13 +46,13 @@ export default async (props) => {
     pageSize: 10,
   })
 
-  const item = await getById({ id: payload['adapterId'], })
+  const item = await getById({ id: toolbox.payload['adapterId'], })
   if (!item) {
     console.log('Could not find adapter in registry.')
     return false
   }
 
-  payload._adapter = item
+  toolbox.payload._adapter = item
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
   if (hasUsage) {

@@ -2,6 +2,8 @@ import getPortOrRandom from "../../lib/port/getPortOrRandom.js"
 import getPortNear from "../../lib/port/getPortNear.js"
 
 export default ({
+  type: "tranformer",
+  position: "in",
   id: "getPort",
   handler: async ({ toolbox, question, item }) => {
     const { params = {} } = item
