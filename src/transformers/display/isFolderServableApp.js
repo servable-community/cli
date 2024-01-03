@@ -1,6 +1,6 @@
 import path from "path"
 import chalk from 'chalk'
-import isFolderServableAppSync from "../../lib/lib/isFolderServableAppSync"
+import isFolderServableAppSync from "../../lib/lib/isFolderServableAppSync.js"
 
 export default ({
   type: "tranformer",

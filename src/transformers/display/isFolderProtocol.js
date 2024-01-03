@@ -1,6 +1,6 @@
 import path from "path"
 import chalk from 'chalk'
-import isFolderProtocolSync from "../../lib/lib/isFolderProtocolSync"
+import isFolderProtocolSync from "../../lib/lib/isFolderProtocolSync.js"
 
 export default ({
   type: "tranformer",
