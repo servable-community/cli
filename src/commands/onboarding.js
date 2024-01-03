@@ -1,12 +1,7 @@
 
 export default ({
   name: 'onboarding',
-  description: 'Servable onboarding',
+  description: 'Welcome to Servable CLI js 🐻🐝',
   handler: async ({ toolbox }) => {
-    const { print, } = toolbox
-
-    print.info('Welcome to Servable CLI js 🐻🐝')
-
-
   },
 })

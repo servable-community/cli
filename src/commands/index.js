@@ -24,16 +24,9 @@ export default ({
       description: 'Dry run',
       global: true
     },
-    {
-      name: 'destination',
-      type: 'string',
-      alias: 'd',
-      message: 'Destination',
-      global: true
-    }],
+  ],
   example: "$0",
   handler: async ({ toolbox }) => {
-    const { print, } = toolbox
-    print.info('Servable 🐻🐝')
+
   },
 })

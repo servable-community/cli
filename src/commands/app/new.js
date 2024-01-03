@@ -88,10 +88,6 @@ export default ({
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
   handler: async ({ toolbox, }) => {
-    toolbox.ui.drawSectionHeader({
-      type: 'h1',
-      title: `Create a new Servable app with any adapter 🐻🐝🚀`,
-    })
 
     const passed = await AppContent.ask({ toolbox, })
     if (!passed) {

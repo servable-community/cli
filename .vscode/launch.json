@@ -17,6 +17,8 @@
         "registry",
         "auth",
         "logout",
+        "--destination",
+        "/Users/anak/YourouNak/development/servable/_lab/test",
       ],
       "env": {
         "NODE_ENV": "development"

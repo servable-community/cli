@@ -25,11 +25,6 @@ export default ({
   ],
   example: "$0 registry auth login",
   handler: async ({ toolbox, }) => {
-    toolbox.ui.drawSectionHeader({
-      type: 'h1',
-      title: `Login 🐻🐝🚀`,
-    })
-
     const domain = toolbox.env.SERVABLE_API_HOST
 
     const username = toolbox.payload.registryUsername

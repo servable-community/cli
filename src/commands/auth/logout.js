@@ -16,10 +16,6 @@ export default ({
   ],
   example: "$0 registry auth logout",
   handler: async ({ toolbox, }) => {
-    toolbox.ui.drawSectionHeader({
-      type: 'h1',
-      title: `Logout 🐻🐝🚀`,
-    })
 
     const domain = toolbox.env.SERVABLE_API_HOST
 
