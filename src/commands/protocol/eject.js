@@ -5,6 +5,10 @@ export default ({
   description: 'Eject a protocol 🐝',
   options: [
     {
+      name: 'appPath',
+      message: "op - App to eject from",
+    },
+    {
       name: 'protocolPath',
       message: "Protocol to eject",
     },
@@ -13,7 +17,8 @@ export default ({
     },
     {
       name: 'installDependencies',
-    }, {
+    },
+    {
       name: 'license',
     },
     {
@@ -27,15 +32,23 @@ export default ({
   handler: async ({ toolbox, }) => {
     await toolbox.prompt.ask([
       {
-        name: 'destination',
-        message: "Where to eject",
+        name: 'appPath',
+        message: "ha - App to eject from",
       },
     ])
 
     await toolbox.prompt.ask([
       {
+        root: `${toolbox.payload.appPath}/lib/protocols`,
         name: 'protocolPath',
         message: "Protocol to eject",
+      },
+    ])
+
+    await toolbox.prompt.ask([
+      {
+        name: 'destination',
+        message: "Where to eject",
       },
     ])
   },
