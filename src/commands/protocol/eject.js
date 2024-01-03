@@ -5,7 +5,8 @@ export default ({
   description: 'Eject a protocol 🐝',
   options: [
     {
-      name: 'destination',
+      name: 'protocolPath',
+      message: "Protocol to eject",
     },
     {
       name: 'installDependencies',
@@ -26,12 +27,12 @@ export default ({
       title: `Eject a protocol 🐻🐝🚀`,
     })
 
-    console.log(toolbox.payload.destination)
+
     await toolbox.prompt.ask([
       {
-        name: 'destination',
+        name: 'protocolPath',
+        message: "Protocol to eject",
       },
     ])
-    console.log(toolbox.payload.destination)
   },
 })
