@@ -8,9 +8,9 @@ import path from "path";
 import askForGeneric from "../utils/askForGeneric.js";
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
 
-    let defaultValue = generator.options['destination'] ? path.basename(generator.destinationPath()) : '';
+    let defaultValue = toolbox.options['destination'] ? path.basename(toolbox.destinationPath()) : '';
     // if (!defaultValue) {
     //     defaultValue = randomName()
     // }

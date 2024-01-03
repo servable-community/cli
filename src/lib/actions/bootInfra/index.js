@@ -4,22 +4,22 @@
 
 export default async (props) => {
 
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
     if (!force && !payload.launchLocalInfraDocker) {
         return
     }
 
-    generator.fs.copyTpl(generator.templatePath('lib/app/system/docker/docker-compose.yaml'), generator.destinationPath('lib/app/system/docker/docker-compose.yaml'), payload);
-    generator.fs.copy(generator.templatePath('lib/app/system/docker/data'), generator.destinationPath('lib/app/system/docker/data'))
-    // generator.fs.copyTpl(generator.templatePath('.system/README.md'), generator.destinationPath('.system/README.md'), payload)
-    // generator.fs.copyTpl(generator.templatePath('.system/CHANGELOG.md'), generator.destinationPath('.system/CHANGELOG.md'), payload)
-    generator.fs.copy(generator.templatePath('lib/app/system/docker/gitignore'), generator.destinationPath('lib/app/system/docker/.gitignore'));
+    toolbox.fs.copyTpl(toolbox.templatePath('lib/app/system/docker/docker-compose.yaml'), toolbox.destinationPath('lib/app/system/docker/docker-compose.yaml'), payload);
+    toolbox.fs.copy(toolbox.templatePath('lib/app/system/docker/data'), toolbox.destinationPath('lib/app/system/docker/data'))
+    // toolbox.fs.copyTpl(toolbox.templatePath('.system/README.md'), toolbox.destinationPath('.system/README.md'), payload)
+    // toolbox.fs.copyTpl(toolbox.templatePath('.system/CHANGELOG.md'), toolbox.destinationPath('.system/CHANGELOG.md'), payload)
+    toolbox.fs.copy(toolbox.templatePath('lib/app/system/docker/gitignore'), toolbox.destinationPath('lib/app/system/docker/.gitignore'));
 
     switch (payload.appDistributionType) {
         case 'distributed': {
-            // if (!generator.fs.exists(this.destinationPath('${generator.destinationPath()}/.system/data/utils-mongo/replica.key'))) {
-            generator.spawnCommand('bash', ['-c', `openssl rand -base64 741 > ${generator.destinationPath()}/lib/app/system/docker/data/utils-mongo/replica.key`])
-            generator.spawnCommand('bash', ['-c', `chmod 600 ${generator.destinationPath()}/lib/app/system/docker/data/utils-mongo/replica.key`])
+            // if (!toolbox.fs.exists(this.destinationPath('${toolbox.destinationPath()}/.system/data/utils-mongo/replica.key'))) {
+            toolbox.spawn('bash', ['-c', `openssl rand -base64 741 > ${toolbox.destinationPath()}/lib/app/system/docker/data/utils-mongo/replica.key`])
+            toolbox.spawn('bash', ['-c', `chmod 600 ${toolbox.destinationPath()}/lib/app/system/docker/data/utils-mongo/replica.key`])
             // }
         } break
         default:
@@ -28,6 +28,6 @@ export default async (props) => {
 
     const launchDocker = payload.launchDocker
     if (launchDocker) {
-        generator.spawnCommand('bash', ['-c', `docker compose --project-name ${payload.appId} -f ${generator.destinationPath()}/.system/app/docker/docker-compose.yaml up -d --remove-orphans`])
+        toolbox.spawn('bash', ['-c', `docker compose --project-name ${payload.appId} -f ${toolbox.destinationPath()}/.system/app/docker/docker-compose.yaml up -d --remove-orphans`])
     }
 }

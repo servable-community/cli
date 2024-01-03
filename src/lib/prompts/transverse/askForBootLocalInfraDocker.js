@@ -6,7 +6,7 @@
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
     await askForGeneric({
         ...props, options: {
             ...props.options,

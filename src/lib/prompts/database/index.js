@@ -9,13 +9,13 @@ import validateNumber from "../../lib/validateNumber.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
     if (!force && payload.promptGroupsPassed.database) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `App database 💿`,
         subTitle: `Servable handles both mongodb and PostGreSQL databases.`
     })

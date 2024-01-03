@@ -6,10 +6,10 @@ import drawTitle from "../../lib/draw/drawTitle.js"
 // import notify from "./notify.js"
 
 export default async (props) => {
-    const { generator, payload, generators } = props
+    const { toolbox, payload, toolboxs } = props
 
     drawTitle({
-        generator,
+        toolbox,
         title: `WELCOME TO THE SERVABLE GENERATOR 🚀 🐻🚀 🐻🚀 🐻🚀 🐻🚀 🐻`,
         // subTitle: `Il n'y a pas de hasard. Il n'y a que des rendez-vous. Paul Éluard`
         // subTitle: quote()
@@ -17,18 +17,18 @@ export default async (props) => {
 
     // await notify(props)
 
-    const generatorType = generator.options['generatorType']
-    if (generatorType) {
-        const _generator = generators.find(g => g.aliases.indexOf(generatorType) !== -1)
-        if (_generator) {
-            payload.type = _generator.id
+    const toolboxType = toolbox.options['toolboxType']
+    if (toolboxType) {
+        const _toolbox = toolboxs.find(g => g.aliases.indexOf(toolboxType) !== -1)
+        if (_toolbox) {
+            payload.type = _toolbox.id
         } else {
-            generator.log("Invalid extension type: " + generatorType + '\nPossible types are: ' + generators.map(g => g.aliases.join(', ')).join(', '))
-            generator.abort = true
+            toolbox.log("Invalid extension type: " + toolboxType + '\nPossible types are: ' + toolboxs.map(g => g.aliases.join(', ')).join(', '))
+            toolbox.abort = true
         }
     } else {
         const choices = []
-        for (const g of generators) {
+        for (const g of toolboxs) {
             // (new inquirer.Separator()),
             const name = g.name
             if (name) {
@@ -38,7 +38,7 @@ export default async (props) => {
                 })
             }
         }
-        payload.type = (await generator.prompt({
+        payload.type = (await toolbox.prompt({
             type: 'list',
             name: 'type',
             message: 'What do you want to do?',

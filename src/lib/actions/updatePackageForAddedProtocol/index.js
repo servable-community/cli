@@ -5,7 +5,7 @@
 import projectPackageJson from "../../lib/projectPackageJson.js"
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
 
     const projectFolder = payload.desiredWriteDestinationPathAbsolute
 
@@ -29,5 +29,5 @@ export default async (props) => {
     })
 
     const packageJsonPath = `${projectFolder}/package.json`
-    generator.fs.writeJSON(generator.destinationPath(packageJsonPath), packageJson)
+    toolbox.fs.writeJSON(toolbox.destinationPath(packageJsonPath), packageJson)
 }

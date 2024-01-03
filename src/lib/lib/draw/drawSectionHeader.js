@@ -2,8 +2,8 @@ import chalk from "chalk"
 
 
 export default props => {
-    const { title, subTitle, generator } = props
+    const { title, subTitle, toolbox } = props
 
-    generator.log(chalk.yellow(`\n${title} --------------`))
-    generator.log(chalk.italic(`${subTitle}\n`))
+    toolbox.log(chalk.yellow(`\n${title} --------------`))
+    toolbox.log(chalk.italic(`${subTitle}\n`))
 }

@@ -7,7 +7,7 @@ import validateNonEmpty from "../../lib/valdiateNonEmpty.js"
 
 export default async (props) => {
     const {
-        generator,
+        toolbox,
         payload,
         options: {
             name,
@@ -20,7 +20,7 @@ export default async (props) => {
     let _message = message
     let _defaultValue = defaultValue
     let _type = type
-    const isQuick = generator.options['quick']
+    const isQuick = toolbox.options['quick']
     if (name) {
         const option = options[name]
         if (option) {
@@ -32,7 +32,7 @@ export default async (props) => {
         }
     }
 
-    // const value = generator.options[name]
+    // const value = toolbox.options[name]
     const value = payload[name]
     if (!(value === null || value === undefined)) {
         return
@@ -47,7 +47,7 @@ export default async (props) => {
         return
     }
 
-    payload[name] = (await generator.prompt({
+    payload[name] = (await toolbox.prompt({
         ...props.options,
         type,
         name,

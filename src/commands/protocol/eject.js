@@ -1,12 +1,15 @@
 
 export default ({
-  _type: "command",
+  _clinextType: "command",
   name: 'eject',
   description: 'Eject a protocol 🐝',
   options: [
     {
       name: 'protocolPath',
       message: "Protocol to eject",
+    },
+    {
+      name: 'destination',
     },
     {
       name: 'installDependencies',
@@ -22,11 +25,12 @@ export default ({
   ],
   example: "$0 protocol eject",
   handler: async ({ toolbox, }) => {
-    toolbox.ui.drawSectionHeader({
-      type: 'h1',
-      title: `Eject a protocol 🐻🐝🚀`,
-    })
-
+    await toolbox.prompt.ask([
+      {
+        name: 'destination',
+        message: "Where to eject",
+      },
+    ])
 
     await toolbox.prompt.ask([
       {

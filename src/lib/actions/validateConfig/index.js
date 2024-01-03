@@ -5,7 +5,7 @@
 // import { validateProtocol } from '@servable/manifest'
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
     const appPath = payload.desiredWriteDestinationPathAbsolute
 
     return { isValid: true, message: null }

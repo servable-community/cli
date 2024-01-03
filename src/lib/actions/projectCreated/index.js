@@ -3,12 +3,12 @@
  *--------------------------------------------------------*/
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
 
-    generator.log('')
-    generator.log('Your project ' + payload.appName + ' has been created!')
-    generator.log('')
+    toolbox.log('')
+    toolbox.log('Your project ' + payload.appName + ' has been created!')
+    toolbox.log('')
 
-    generator.log('For more information, also visit http://servablecommunity.com and follow us @servablecom.')
-    generator.log('\r\n')
+    toolbox.log('For more information, also visit http://servablecommunity.com and follow us @servablecom.')
+    toolbox.log('\r\n')
 }

@@ -5,7 +5,7 @@ import askForGeneric from "./askForGeneric.js"
 import getPortOrRandom from "../../lib/ports/getPortOrRandom.js"
 import getPortNear from "../../lib/ports/getPortNear.js"
 
-export default async ({ generator, payload, options: {
+export default async ({ toolbox, payload, options: {
     port,
     ..._options
 } }) => {
@@ -24,7 +24,7 @@ export default async ({ generator, payload, options: {
     }
 
     return askForGeneric({
-        generator,
+        toolbox,
         payload,
         options: {
             ..._options,

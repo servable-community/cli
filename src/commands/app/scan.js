@@ -29,7 +29,7 @@ export default ({
     }
 
     const f = toolbox.template.render('<%= people.join(", "); %>', { people: ['geddy', 'neil', 'alex'] })
-    await toolbox.spawnCommand('git', ['add', '.',])
+    await toolbox.spawn('git', ['add', '.',])
     // ask a series of questions
     const questions = [askAge, askShoe, askName]
     const { age, shoe, name } = await toolbox.prompt.ask(questions)

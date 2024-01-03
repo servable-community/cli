@@ -9,14 +9,14 @@ import askForGenericPort from "../utils/askForGenericPort.js"
 import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
 
     if (!force && payload.promptGroupsPassed.liveQueryServer) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Live query server ⚡️`,
         subTitle: `A distinct live query server can drastically improve the app's performance for live queries.`
     })

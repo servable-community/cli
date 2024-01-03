@@ -28,16 +28,16 @@ export default [
             "node",
             "protocols",
             "servable",
-            "yeoman-generator"
+            "yeoman-toolbox"
         ],
         "repository": {
             "type": "git",
-            "url": "https://github.com/servable-community/generator-servable.git"
+            "url": "https://github.com/servable-community/toolbox-servable.git"
         },
         "bugs": {
-            "url": "https://github.com/servable-community/generator-servable/issues"
+            "url": "https://github.com/servable-community/toolbox-servable/issues"
         },
-        "main": "./generators/app/index.js",
+        "main": "./toolboxs/app/index.js",
         "homepage": "http://servablecommunity.com",
         "license": "MIT",
         "engines": {
@@ -103,7 +103,7 @@ export default [
             "node",
             "protocols",
             "servable",
-            "yeoman-generator"
+            "yeoman-toolbox"
         ],
         "repository": {
             "type": "git",
@@ -112,7 +112,7 @@ export default [
         "bugs": {
             "url": "https://github.com/servable-community/servable-emailable.git#issues"
         },
-        "main": "./generators/app/index.js",
+        "main": "./toolboxs/app/index.js",
         "homepage": "http://servablecommunity.com",
         "license": "MIT",
         "engines": {

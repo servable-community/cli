@@ -5,13 +5,13 @@
 import askForProtocol from "./askForProtocol/index.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
     if (!force && payload.promptGroupsPassed.existingProtocol) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Choose a protocol`,
         subTitle: ``
     })

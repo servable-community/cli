@@ -7,14 +7,14 @@ import askForGeneric from "../utils/askForGeneric.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
 
     if (!force && payload.promptGroupsPassed.dashboard) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Servable dashboard 🚀`,
         subTitle: `Servable dashboard helps you visualize and edit the app's data and configuration.`
     })

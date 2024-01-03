@@ -9,7 +9,7 @@ import Bluebird from "bluebird"
 
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
 
     let existingProtocols = await getClassProtocols(payload.targetClassPath)
     if (!existingProtocols) {
@@ -23,7 +23,7 @@ export default async (props) => {
     let protocol = {
         id,
         metadata: {
-            generatorVersion: generator.version,
+            toolboxVersion: toolbox.version,
             updatedAt: (new Date()),
         }
     }
@@ -57,7 +57,7 @@ export default async (props) => {
     await updateClassProtocols({
         ...props,
         folder: payload.targetClassPath,
-        generator,
+        toolbox,
         items: existingProtocols,
         isTemplate
     })

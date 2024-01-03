@@ -7,14 +7,14 @@ import askForGenericPort from "../utils/askForGenericPort.js"
 import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
-  const { generator, payload, options: { force = false } = {} } = props
+  const { toolbox, payload, options: { force = false } = {} } = props
 
   if (!force && payload.promptGroupsPassed.appCache) {
     return
   }
 
-  generator.ui.drawSectionHeader({
-    generator,
+  toolbox.ui.drawSectionHeader({
+    toolbox,
     title: `App redis cache 🚀`,
     subTitle: `Servable can launch with a dedicated cache server in REDIS.`
   })

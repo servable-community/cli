@@ -7,13 +7,13 @@ import askForGeneric from "../utils/askForGeneric.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { toolbox, payload, options: { force = false } = {} } = props
     if (!force && payload.promptGroupsPassed.localMinio) {
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Bucket storage 📂`,
         subTitle: `Servable uses a bucket storage for files.`
     })

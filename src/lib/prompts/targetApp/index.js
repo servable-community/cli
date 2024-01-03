@@ -9,9 +9,9 @@ import path from "path"
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
 
-    let value = generator.options['targetApp']
+    let value = toolbox.options['targetApp']
     if (value) {
         payload.targetApp = value
         return
@@ -19,23 +19,23 @@ export default async (props) => {
 
     // payload.targetApp = 'standalone'
 
-    if (generator.options['quick']) {
+    if (toolbox.options['quick']) {
         return
     }
 
-    const originalDestinationPath = generator.originalDestinationPath
+    const originalDestinationPath = toolbox.originalDestinationPath
 
     if (await isFolderServableApp(originalDestinationPath)) {
         const config = await getServablePackage(originalDestinationPath)
         payload.desiredWriteDestinationPathAbsolute = originalDestinationPath
         payload.desiredWriteDestinationPath = payload.desiredWriteDestinationPathAbsolute.split(path.sep).pop()
 
-        generator.log(chalk.italic(`→ No app choice required. The protocol will be added servable app in the current folder (${payload.appName}).\n`))
+        toolbox.log(chalk.italic(`→ No app choice required. The protocol will be added servable app in the current folder (${payload.appName}).\n`))
         return
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `App choice 🚀`,
         subTitle: `Choose the app you want to add a protocol to.`
     })

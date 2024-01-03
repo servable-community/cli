@@ -10,28 +10,28 @@ import updateTargetProtocolFromPath from "./updateTargetProtocolFromPath.js"
 import path from "path"
 
 export default async (props) => {
-    const { generator, payload,
+    const { toolbox, payload,
     } = props
 
-    if (generator.options['targetProtocolPath']) {
-        updateTargetProtocolFromPath({ payload, path: generator.options['targetProtocolPath'] })
+    if (toolbox.options['targetProtocolPath']) {
+        updateTargetProtocolFromPath({ payload, path: toolbox.options['targetProtocolPath'] })
         return true
     }
 
-    if (generator.options['quick']) {
+    if (toolbox.options['quick']) {
         // return true
     }
 
-    const originalDestinationPath = generator.originalDestinationPath
+    const originalDestinationPath = toolbox.originalDestinationPath
 
     if (await isFolderProtocol(originalDestinationPath)) {
         updateTargetProtocolFromPath({ payload, path: originalDestinationPath })
-        generator.log(chalk.italic(`→ The target protocol is the current folder.\n`))
+        toolbox.log(chalk.italic(`→ The target protocol is the current folder.\n`))
         return true
     }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Protocol choice 🐝`,
         subTitle: `Choose a protocol`
     })

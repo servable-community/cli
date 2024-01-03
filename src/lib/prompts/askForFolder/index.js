@@ -4,16 +4,16 @@
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload,
+    const { toolbox, payload,
     } = props
 
-    // if (generator._destinationRoot) {
-    //     payload.targetFolder = generator._destinationRoot
+    // if (toolbox._destinationRoot) {
+    //     payload.targetFolder = toolbox._destinationRoot
     //     return
     // }
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Target folder 🚀`,
         subTitle: `Choose the folder in your filesystem.`
     })
@@ -26,10 +26,10 @@ export default async (props) => {
             message: "Choose the folder in your filesystem",
             onlyShowDir: true,
             enableGoUpperDirectory: true,
-            // root: generator._destinationRoot,
+            // root: toolbox._destinationRoot,
             // onlyShowValid: true,
             hideRoot: false,
-            default: generator._destinationRoot
+            default: toolbox._destinationRoot
         }
     })
 }

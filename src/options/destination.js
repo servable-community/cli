@@ -1,6 +1,7 @@
+import path from "path"
 
 export default ({
-  _type: "option",
+  _clinextType: "option",
   type: 'string',
   alias: 'd',
   message: "Choose a destination",
@@ -11,6 +12,14 @@ export default ({
   onlyShowValid: false,
   enableGoUpperDirectory: true,
   hideRoot: false,
-  hideChildrenOfValid: true,
+  hideChildrenOfValid: false,
   hideValidationErrorMessage: true,
+  transformer: (name,) => {
+    if (!name || !name.length) {
+      return ''
+    }
+
+    const _name = name.split(path.sep).pop()
+    return `${_name}`
+  }
 })

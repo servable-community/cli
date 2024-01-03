@@ -2,7 +2,7 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 /**
-* @param {import('yeoman-generator')} generator
+* @param {import('yeoman-toolbox')} toolbox
 * @param {Object} payload
 */
 

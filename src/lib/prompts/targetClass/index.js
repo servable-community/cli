@@ -9,25 +9,25 @@ import targetProtocol from "../targetProtocol/index.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload,
+    const { toolbox, payload,
         includeCoreClasses = true,
         appProtocolMessage = `Add class to app protocol?`,
         includeProtocolAsAClass = false,
         forProtocols = 'Do you want to target protocols or classes'
     } = props
 
-    let value = generator.options['targetClass']
+    let value = toolbox.options['targetClass']
     if (value) {
         payload.targetClass = value
         payload.targetClassPath = null
         return
     }
 
-    if (generator.options['quick']) {
+    if (toolbox.options['quick']) {
         return
     }
 
-    const originalDestinationPath = generator.originalDestinationPath
+    const originalDestinationPath = toolbox.originalDestinationPath
 
     if (await isFolderClass(originalDestinationPath)) {
         payload.targetClassPath = originalDestinationPath
@@ -35,7 +35,7 @@ export default async (props) => {
 
         // const config = await getServablePackage(originalDestinationPath)
         // payload.desiredWriteDestinationPath = ''
-        generator.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
+        toolbox.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
         return
     }
 
@@ -59,8 +59,8 @@ export default async (props) => {
     }
 
     await targetProtocol(props)
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Class choice 🚀`,
         subTitle: `Choose the class.`
     })
@@ -85,7 +85,7 @@ export default async (props) => {
         }
     })
 
-    // const folderPath = path.resolve(generator.destinationPath(), destination)
+    // const folderPath = path.resolve(toolbox.destinationPath(), destination)
     // this.destinationRoot(folderPath)
 
     payload.targetClass = payload.targetProtocolPath.split(path.sep).pop()

@@ -6,7 +6,7 @@ export default async (props) => {
     const {
         folder,
         items,
-        generator,
+        toolbox,
         payload,
         isTemplate
     } = props
@@ -26,7 +26,7 @@ export default async (props) => {
                 strict: false
             })
         }
-        generator.fs.write(targetPath, data)
+        toolbox.fs.write(targetPath, data)
     } catch (e) {
         console.error(e)
     }

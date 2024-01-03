@@ -4,8 +4,8 @@
 import fs from 'fs';
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { toolbox, payload, } = props
     const sourcePath = payload.targetProtocolPath
-    // generator.fs.delete(sourcePath)
+    // toolbox.fs.delete(sourcePath)
     return fs.promises.rm(sourcePath, { recursive: true, force: true })
 }

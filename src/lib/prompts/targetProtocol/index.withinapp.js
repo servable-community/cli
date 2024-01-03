@@ -12,23 +12,23 @@ import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
 import protocolsInFolder from "./lib/protocolsInFolder.js"
 
 export default async (props) => {
-    const { generator, payload,
+    const { toolbox, payload,
         includeAppProtocol = true,
         appProtocolMessage = `Use app protocol?`
     } = props
 
-    let value = generator.options['targetProtocol']
+    let value = toolbox.options['targetProtocol']
     if (value) {
         payload.targetProtocol = value
         payload.targetProtocolPath = null
         return true
     }
 
-    if (generator.options['quick']) {
+    if (toolbox.options['quick']) {
         return true
     }
 
-    const originalDestinationPath = generator.originalDestinationPath
+    const originalDestinationPath = toolbox.originalDestinationPath
 
     if (await isFolderProtocol(originalDestinationPath)) {
         payload.targetProtocolPath = originalDestinationPath
@@ -36,14 +36,14 @@ export default async (props) => {
 
         // const config = await getServablePackage(originalDestinationPath)
         // payload.desiredWriteDestinationPath = ''
-        generator.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
+        toolbox.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
         return true
     }
 
     await targetApp(props)
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Protocol choice 🚀`,
         subTitle: `Choose a protocol`
     })
@@ -71,7 +71,7 @@ export default async (props) => {
     const root = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`
     const items = await protocolsInFolder(root)
     if (!items || !items.length) {
-        generator.log('No protocols found in this app')
+        toolbox.log('No protocols found in this app')
         return false
     }
 

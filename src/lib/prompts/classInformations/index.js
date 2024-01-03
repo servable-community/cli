@@ -9,17 +9,17 @@ import askForGeneric from "../utils/askForGeneric.js"
 import protocolSchemaOwnClasses from "./lib/protocolSchemaOwnClasses.js"
 
 export default async (props) => {
-    const { generator, payload, options = {} } = props
+    const { toolbox, payload, options = {} } = props
 
-    generator.ui.drawSectionHeader({
-        generator,
+    toolbox.ui.drawSectionHeader({
+        toolbox,
         title: `Class informations 🚀`,
         subTitle: `Servable required class informations.`
     })
 
     const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolPath)
 
-    const nameFromFolder = generator.options['destination'] ? path.basename(generator.destinationPath()) : ''
+    const nameFromFolder = toolbox.options['destination'] ? path.basename(toolbox.destinationPath()) : ''
 
     await askForGeneric({
         ...props, options: {
@@ -30,7 +30,7 @@ export default async (props) => {
             validate: (name,) => {
                 const classNames = ownClasses.map(c => c.className.toLowerCase())
                 if (classNames.includes(name.toLowerCase())) {
-                    generator.log(chalk.red(chalk.italic(`\n${name} class is already present.`)))
+                    toolbox.log(chalk.red(chalk.italic(`\n${name} class is already present.`)))
                     return false
                 }
                 return true

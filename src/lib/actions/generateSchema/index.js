@@ -5,7 +5,7 @@ import { computeSchema } from '@servable/manifest'
 
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
     // console.log(cccomputeSchema)
 
     const appPath = payload.desiredWriteDestinationPathAbsolute

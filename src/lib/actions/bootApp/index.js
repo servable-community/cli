@@ -4,20 +4,20 @@
 
 export default async (props) => {
 
-    const { generator, payload } = props
+    const { toolbox, payload } = props
 
-    generator.fs.copy(generator.templatePath('lib'), generator.destinationPath('lib'))
-    // generator.fs.copy(generator.templatePath('config'), generator.destinationPath('config'))
-    generator.fs.copy(generator.templatePath('.vscode'), generator.destinationPath('.vscode'))
+    toolbox.fs.copy(toolbox.templatePath('lib'), toolbox.destinationPath('lib'))
+    // toolbox.fs.copy(toolbox.templatePath('config'), toolbox.destinationPath('config'))
+    toolbox.fs.copy(toolbox.templatePath('.vscode'), toolbox.destinationPath('.vscode'))
 
-    generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath('README.md'), payload)
-    generator.fs.copyTpl(generator.templatePath('package.json'), generator.destinationPath('package.json'), payload)
-    generator.fs.copyTpl(generator.templatePath('lib/app/index.json'), generator.destinationPath('lib/app/index.json'), payload)
-    generator.fs.copyTpl(generator.templatePath('servable.config.js'), generator.destinationPath('servable.config.js'), payload)
-    generator.fs.copyTpl(generator.templatePath('env'), generator.destinationPath('.env'), payload)
-    generator.fs.copyTpl(generator.templatePath('Dockerfile'), generator.destinationPath('Dockerfile'), payload)
-    generator.fs.copyTpl(generator.templatePath('.dockerignore'), generator.destinationPath('.dockerignore'), payload)
-    generator.fs.copyTpl(generator.templatePath('jest.config.json'), generator.destinationPath('jest.config.json'), payload)
-    generator.fs.copyTpl(generator.templatePath('jsconfig.json'), generator.destinationPath('jsconfig.json'), payload)
-    generator.fs.copyTpl(generator.templatePath('lib/app/system/docker/docker-compose.yaml'), generator.destinationPath('lib/app/system/docker/docker-compose.yaml'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('README.md'), toolbox.destinationPath('README.md'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('package.json'), toolbox.destinationPath('package.json'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('lib/app/index.json'), toolbox.destinationPath('lib/app/index.json'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('servable.config.js'), toolbox.destinationPath('servable.config.js'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('env'), toolbox.destinationPath('.env'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('Dockerfile'), toolbox.destinationPath('Dockerfile'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('.dockerignore'), toolbox.destinationPath('.dockerignore'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('jest.config.json'), toolbox.destinationPath('jest.config.json'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('jsconfig.json'), toolbox.destinationPath('jsconfig.json'), payload)
+    toolbox.fs.copyTpl(toolbox.templatePath('lib/app/system/docker/docker-compose.yaml'), toolbox.destinationPath('lib/app/system/docker/docker-compose.yaml'), payload)
 }

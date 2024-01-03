@@ -3,7 +3,7 @@ import chalk from "chalk"
 import fs from 'fs'
 
 export default ({
-  _type: "option",
+  _clinextType: "option",
   type: 'string',
   message: "Choose a protocol",
   promptType: "file-tree-selection",

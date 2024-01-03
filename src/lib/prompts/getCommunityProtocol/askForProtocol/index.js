@@ -2,7 +2,7 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 /**
-* @param {import('yeoman-generator')} generator
+* @param {import('yeoman-toolbox')} toolbox
 * @param {Object} payload
 */
 
@@ -13,7 +13,7 @@ import askForGeneric from '../../utils/askForGeneric.js'
 dotenv.config()
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { toolbox, payload } = props
     // const u = "https://api.registry.servablecommunity.com"
 
     const communityProtocolIdToImport = await askForGeneric({
