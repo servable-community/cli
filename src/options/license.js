@@ -5,6 +5,8 @@ export default ({
   alias: 'l',
   defaultValue: 'MIT',
   message: 'License',
+  description: '',
+  subMessage: '("MIT", ...)',
   choices: [
     "Apache 2.0",
     "MIT",

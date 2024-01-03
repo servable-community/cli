@@ -1,6 +1,3 @@
-import path from "path"
-import chalk from "chalk"
-import isFolderProtocolSync from "../../lib/lib/isFolderProtocolSync.js"
 
 export default ({
   _clinextType: "option",
@@ -18,14 +15,19 @@ export default ({
   validators: [{
     id: 'isProtocol'
   }],
-  transformer: (name,) => {
-    if (!name || !name.length) {
-      return name
-    }
-
-    const _name = name.split(path.sep).pop()
-    const isServable = isFolderProtocolSync(name)
-    return isServable ? `${chalk.underline(_name)} 🐝 ` : `${_name}`
+  transformers: {
+    display: [{
+      id: 'isFolderProtocol'
+    }]
   }
+  // transformer: (name,) => {
+  //   if (!name || !name.length) {
+  //     return name
+  //   }
+
+  //   const _name = name.split(path.sep).pop()
+  //   const isServable = isFolderProtocolSync(name)
+  //   return isServable ? `${chalk.underline(_name)} 🐝 ` : `${_name}`
+  // }
 })
 
