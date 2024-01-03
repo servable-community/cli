@@ -1,36 +1,14 @@
-import path from "path"
-import chalk from "chalk"
 import fs from 'fs'
 
 export default ({
-  _type: "option",
-  type: 'string',
-  alias: 'd',
-  message: "Choose destination",
-  promptType: "file-tree-selection",
-  name: "destination",
-  onlyShowDir: true,
-  root: "./",
-
-  onlyShowValid: false,
-  enableGoUpperDirectory: true,
-  hideRoot: false,
-  hideChildrenOfValid: true,
-  hideValidationErrorMessage: true,
-  validators: [{
-    id: 'isProtocol'
-  }],
-  transformer: (name,) => {
-    if (!name || !name.length) {
-      return name
+  id: "isProtocol",
+  handler: async ({ input, params }) => {
+    return {
+      isValid: input ? isFolderProtocolSync(input) : false,
+      message: 'Not a protocol folder'
     }
-
-    const _name = name.split(path.sep).pop()
-    const isServable = isFolderProtocolSync(name)
-    return isServable ? `${chalk.underline.green(_name)} 🐝 ` : `${_name}`
   }
 })
-
 
 const isFolderProtocolSync = (folder) => {
 

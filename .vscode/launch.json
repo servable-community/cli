@@ -8,6 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Login to registry",
+      "stopOnEntry": false,
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -44,6 +45,7 @@
       "type": "node",
       "request": "launch",
       "name": "Eject a protocol",
+      "stopOnEntry": false,
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -79,6 +81,7 @@
       "type": "node",
       "request": "launch",
       "name": "New app",
+      "stopOnEntry": false,
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -127,6 +130,7 @@
       "type": "node",
       "request": "launch",
       "name": "Eject protocol",
+      "stopOnEntry": false,
       "skipFiles": [
         "<node_internals>/**"
       ],

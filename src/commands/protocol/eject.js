@@ -26,10 +26,12 @@ export default ({
       title: `Eject a protocol 🐻🐝🚀`,
     })
 
+    console.log(toolbox.payload.destination)
     await toolbox.prompt.ask([
       {
         name: 'destination',
       },
     ])
+    console.log(toolbox.payload.destination)
   },
 })
