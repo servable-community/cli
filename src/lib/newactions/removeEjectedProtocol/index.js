@@ -4,8 +4,9 @@
 import fs from 'fs';
 
 export default async (props) => {
-    const { toolbox, payload, } = props
-    const sourcePath = payload.targetProtocolPath
-    // toolbox.fs.delete(sourcePath)
-    return fs.promises.rm(sourcePath, { recursive: true, force: true })
+  const { protocolPath = clinextbox.payload.protocolPath } = props
+  return fs.promises.rm(protocolPath, {
+    recursive: true,
+    force: true
+  })
 }

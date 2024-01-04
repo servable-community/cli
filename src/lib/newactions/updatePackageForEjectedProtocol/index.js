@@ -23,5 +23,5 @@ export default async (props) => {
   }
 
   const packageJsonPath = `${appPath}/package.json`
-  return clinextbox.fs.writeText({ text: packageJson, destination: packageJsonPath })
+  return clinextbox.fs.writeJSON({ text: packageJson, destination: packageJsonPath })
 }
