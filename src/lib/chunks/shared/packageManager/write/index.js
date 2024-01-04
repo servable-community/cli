@@ -4,6 +4,11 @@ export default async (props) => {
     packageManager = clinextbox.payload.packageManager
   } = props
 
+  await clinextbox.fs.chunks.copy({
+    destination,
+    source: '{.}npmignore',
+  })
+
   switch (packageManager) {
     case 'yarn': {
       await clinextbox.fs.chunks.copy({
@@ -24,6 +29,6 @@ export default async (props) => {
 
 
   if (installDependencies) {
-    await clinextbox.installDependencies({ destination, packageManager })
+    await clinextbox.packagerManager.installDependencies({ destination, packageManager })
   }
 }

@@ -17,6 +17,7 @@ export default async ({ toolbox }) => {
       destination = toolbox.payload.destination,
       data = toolbox.payload,
       options = { mark: true },
+      render = true
     }) => {
       let rootSource = source
       let _source = source
@@ -51,13 +52,19 @@ export default async ({ toolbox }) => {
             return copyFile()
           }
 
-          try {
-            const content = await fs.promises.readFile(entry, 'utf8')
-            const result = ejs.render(content, data)
-            return fs.promises.writeFile(_destination, result)
-          } catch (e) {
+          if (!render) {
             return copyFile()
           }
+          else {
+            try {
+              const content = await fs.promises.readFile(entry, 'utf8')
+              const result = ejs.render(content, data)
+              return fs.promises.writeFile(_destination, result)
+            } catch (e) {
+              return copyFile()
+            }
+          }
+
           // }))
         })
     }

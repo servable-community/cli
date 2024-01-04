@@ -5,16 +5,17 @@ export default ({
   alias: 'p',
   defaultValue: 'none',
   message: "Continuous release provider",
-  choices: [{
-    name: 'Github actions',
-    value: 'github'
-  },
-  {
-    name: 'Gitlab CI',
-    value: 'gitlab'
-  },
-  {
-    name: 'None',
-    value: 'none'
-  },]
+  choices: [
+    {
+      name: 'None',
+      value: 'none'
+    }, {
+      name: 'Github actions',
+      value: 'github'
+    },
+    {
+      name: 'Gitlab CI',
+      value: 'gitlab'
+    },
+  ]
 })

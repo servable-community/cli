@@ -3,7 +3,7 @@ export default ({
   type: 'string',
   promptType: 'list',
   alias: 'p',
-  defaultValue: 'yarn',
+  defaultValue: 'npm',
   message: "Package manager ('npm', 'yarn' or 'pnpm')",
   choices: [{
     name: 'npm',

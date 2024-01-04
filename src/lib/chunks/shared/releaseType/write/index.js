@@ -1,10 +1,10 @@
 export default async (props) => {
-  const { destination } = props
-  switch (payload.releaseType) {
+  const { destination = clinextbox.payload.destination } = props
+  switch (clinextbox.payload.releaseType) {
     case 'github': {
       await clinextbox.fs.chunks.copy({
         destination,
-        source: 'github/**/*',
+        source: '.github/**/*',
       })
     } break
     case 'gitlab': {
