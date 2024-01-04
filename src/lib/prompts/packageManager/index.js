@@ -22,7 +22,7 @@ export default async (props) => {
         ...props,
         options: {
             type: 'list',
-            name: 'pkgManager',
+            name: 'packageManager',
 
             choices: [{
                 name: 'npm',

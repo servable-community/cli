@@ -1,3 +1,6 @@
+import * as ChunkShell from '../../lib/chunks/protocol/shell/index.js'
+import fillPayloadWithProtocolIndex from '../../lib/newactions/fillPayloadWithProtocolIndex.js'
+
 
 export default ({
   _clinextType: "command",
@@ -7,14 +10,20 @@ export default ({
     {
       name: 'appPath',
       message: "App to eject from",
+      // validators: [{ id: 'nonempty' }]
     },
     {
       name: 'protocolPath',
       message: "Protocol to eject",
+      // validators: [{ id: 'nonempty' }]
     },
     {
       name: 'destination',
       message: "Where to eject",
+      // validators: [{ id: 'nonempty' }]
+    },
+    {
+      name: 'packageManager',
     },
     {
       name: 'installDependencies',
@@ -23,33 +32,65 @@ export default ({
       name: 'license',
     },
     {
-      name: 'packageManager',
+      name: 'gitInit',
     },
     {
-      name: 'gitInit',
+      name: 'description',
+    },
+    {
+      name: 'homepageUrl',
+    },
+    {
+      name: 'authorName',
+    },
+    {
+      name: 'authorEmail',
+    },
+    {
+      name: 'authorUrl',
+    },
+    {
+      name: 'authorGithubUrl',
+    },
+    {
+      name: 'releaseType',
     },
   ],
   example: "$0 protocol eject",
-  handler: async ({ toolbox, }) => {
-    await toolbox.prompt.ask([
+  handler: async () => {
+    await clinextbox.prompt.ask([
       {
         name: 'appPath',
-        // message: "ha - App to eject from",
       },
     ])
 
-    await toolbox.prompt.ask([
+    await clinextbox.prompt.ask([
       {
-        root: `${toolbox.payload.appPath}/lib/protocols`,
+        root: `${clinextbox.payload.appPath}/lib/protocols`,
         name: 'protocolPath',
       },
     ])
 
-    await toolbox.prompt.ask([
+    await fillPayloadWithProtocolIndex({ protocolPath: clinextbox.payload.protocolPath })
+
+    await clinextbox.prompt.ask([
       {
         name: 'destination',
-
       },
     ])
+
+    clinextbox.payload.destination = `${clinextbox.payload.destination}/${clinextbox.payload.protocolId}`
+
+
+    let pass = await ChunkShell.ask()
+
+    if (!pass) {
+      return
+    }
+
+    await ChunkShell.write({
+    })
+
+    // await updatePackageForEjectedProtocol({ clinextbox })
   },
 })

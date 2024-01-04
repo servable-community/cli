@@ -11,7 +11,7 @@ export default async (props) => {
     toolbox.log('To start editing with Visual Studio Code, use the following commands:')
     toolbox.log('')
     toolbox.log('     code .')
-    // toolbox.log(`     ${payload.pkgManager} run compile-web`)
+    // toolbox.log(`     ${payload.packageManager} run compile-web`)
     toolbox.log('')
 
 }

@@ -1,4 +1,4 @@
-import * as AppContent from '../../chunks/app/content/index.js'
+import * as AppContent from '../../lib/chunks/app/content/index.js'
 
 export default ({
   type: "command",

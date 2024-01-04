@@ -31,7 +31,7 @@ export default async (props) => {
 
 
 const fileNamer = (props) => {
-  switch (props.payload.pkgManager) {
+  switch (props.payload.packageManager) {
     case 'yarn': {
       return 'yarnrc'
     }

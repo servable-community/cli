@@ -14,8 +14,8 @@ export default async ({ toolbox }) => {
   toolbox.fs.chunks = {
     copy: async ({
       source,
-      destination,
-      data,
+      destination = toolbox.payload.destination,
+      data = toolbox.payload,
       options = { mark: true },
     }) => {
       let rootSource = source

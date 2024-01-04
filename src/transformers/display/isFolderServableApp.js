@@ -11,8 +11,8 @@ export default ({
       return input
     }
 
-    const _name = input.split(path.sep).pop()
+    const name = input.split(path.sep).pop()
     const isServable = isFolderServableAppSync(input)
-    return isServable ? `${chalk.underline(_name)} 🐻` : `${_name}`
+    return isServable ? `${chalk.underline(name)} 🐻` : `${name}`
   }
 })

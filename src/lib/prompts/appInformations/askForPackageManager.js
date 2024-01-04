@@ -11,7 +11,7 @@ export default async (props) => askForGeneric({
     ...props, options: {
         ...props.options,
         type: 'list',
-        name: 'pkgManager',
+        name: 'packageManager',
         choices: [{
             name: 'yarn',
             value: 'yarn'

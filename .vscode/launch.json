@@ -55,6 +55,14 @@
       "args": [
         "protocol",
         "eject",
+        "--destination",
+        "/Users/anak/YourouNak/development/servable/_lab",
+        "--appPath",
+        "/Users/anak/YourouNak/development/servable/core/registry/backend/main",
+        "--protocolPath",
+        "/Users/anak/YourouNak/development/servable/core/registry/backend/main/lib/protocols/@servable-community/commentable",
+        "--description",
+        "Commentable protocol"
       ],
       "env": {
         "NODE_ENV": "development"
