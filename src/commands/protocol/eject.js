@@ -1,5 +1,7 @@
 import * as ChunkShell from '../../lib/chunks/protocol/shell/index.js'
 import fillPayloadWithProtocolIndex from '../../lib/newactions/fillPayloadWithProtocolIndex.js'
+import removeEjectedProtocol from '../../lib/newactions/removeEjectedProtocol/index.js'
+import updatePackageForEjectedProtocol from '../../lib/newactions/updatePackageForEjectedProtocol/index.js'
 
 
 export default ({
@@ -55,6 +57,13 @@ export default ({
     {
       name: 'releaseType',
     },
+    {
+      name: 'updateApp',
+      type: 'boolean',
+      promptType: 'confirm',
+      defaultValue: true,
+      message: 'Update app after ejection'
+    }
   ],
   example: "$0 protocol eject",
   handler: async () => {
@@ -97,6 +106,15 @@ export default ({
       render: false
     })
 
-    // await updatePackageForEjectedProtocol({ clinextbox })
+
+    await clinextbox.prompt.ask([
+      {
+        name: 'updateApp',
+      },
+    ])
+    if (clinextbox.payload.updateApp) {
+      await updatePackageForEjectedProtocol({})
+      await removeEjectedProtocol({})
+    }
   },
 })

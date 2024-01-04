@@ -5,22 +5,23 @@
 import projectPackageJson from "./lib/projectPackageJson.js"
 
 export default async (props) => {
-  const { toolbox, } = props
 
-  const projectFolder = toolbox.payload.appPath
-  const protocolTargetFolder = toolbox.payload.destination
-  const protocolId = toolbox.payload.protocolId
+  const {
+    appPath = clinextbox.payload.appPath,
+    destination = clinextbox.payload.destination,
+    protocolId = clinextbox.payload.protocolId,
+  } = props
 
-  const packageJson = await projectPackageJson(projectFolder)
+  const packageJson = await projectPackageJson(appPath)
   if (!packageJson) {
     return
   }
 
   packageJson.dependencies = {
     ...(packageJson.dependencies ? packageJson.dependencies : {}),
-    [protocolId]: `file:${protocolTargetFolder}`
+    [protocolId]: `file:${destination}`
   }
 
-  const packageJsonPath = `${projectFolder}/package.json`
-  toolbox.fs.writeJSON(toolbox.destinationPath(packageJsonPath), packageJson)
+  const packageJsonPath = `${appPath}/package.json`
+  return clinextbox.fs.writeText({ text: packageJson, destination: packageJsonPath })
 }
