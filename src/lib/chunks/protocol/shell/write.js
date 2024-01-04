@@ -3,7 +3,7 @@ import * as ChunkReleaseType from '../../shared/releaseType/index.js'
 import * as ChunkPackageManager from '../../shared/packageManager/index.js'
 import * as ChunkGit from '../../shared/gitInit/index.js'
 
-export default async (props) => {
+export default async (props = {}) => {
   const {
     destination = clinextbox.payload.destination
   } = props

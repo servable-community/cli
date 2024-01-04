@@ -88,7 +88,13 @@ export default ({
       return
     }
 
-    await ChunkShell.write({
+    await ChunkShell.write()
+
+    await clinextbox.fs.copyAdvanced({
+      destination: `${clinextbox.payload.destination}/src`,
+      source: `${clinextbox.payload.protocolPath}/**/*`,
+      rootSource: `${clinextbox.payload.protocolPath}`,
+      render: false
     })
 
     // await updatePackageForEjectedProtocol({ clinextbox })
