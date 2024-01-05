@@ -60,20 +60,20 @@ export default ({
   example: "$0 protocol eject",
   handler: async () => {
 
-    await clinextbox.prompt.ask([
+    await Clinext.prompt.ask([
       {
         name: 'protocolId',
       },
     ])
 
-    await clinextbox.prompt.ask([
+    await Clinext.prompt.ask([
       {
         name: 'destination',
 
       },
     ])
 
-    // clinextbox.payload.destination = `${clinextbox.payload.destination}/${clinextbox.payload.protocolId}`
+    // Clinext.payload.destination = `${Clinext.payload.destination}/${Clinext.payload.protocolId}`
 
 
     let pass = await ChunkShell.ask({ askIndex: true })

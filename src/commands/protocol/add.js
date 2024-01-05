@@ -26,19 +26,19 @@ export default ({
   ],
   example: "$0 protocol eject",
   handler: async () => {
-    await clinextbox.prompt.ask([
+    await Clinext.prompt.ask([
       {
         name: 'appPath',
       },
     ])
 
-    await clinextbox.prompt.ask([
+    await Clinext.prompt.ask([
       {
         name: 'protocolId',
       },
     ])
 
-    clinextbox.payload.destination = `${clinextbox.payload.appPath}/lib/protocols/${clinextbox.payload.protocolId}`
+    Clinext.payload.destination = `${Clinext.payload.appPath}/lib/protocols/${Clinext.payload.protocolId}`
 
     let pass = await ChunkProtocolContent.ask()
 

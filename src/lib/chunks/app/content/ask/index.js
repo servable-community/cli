@@ -5,8 +5,8 @@
 // import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 
 
-import search from './lib/api/search.js'
-import getById from './lib/api/getById.js'
+import search from './api/search.js'
+import getById from './api/getById.js'
 
 export default async () => {
 

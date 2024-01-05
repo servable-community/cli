@@ -1,6 +1,6 @@
 
 export default async () => {
-  await clinextbox.prompt.ask(
+  await Clinext.prompt.ask(
     [
       {
         name: 'packageManager',

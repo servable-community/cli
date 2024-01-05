@@ -2,7 +2,7 @@ import capitalizeFirstLetter from '../../../newlib/capitalizeFirstLetter.js'
 
 export default async () => {
 
-  await clinextbox.prompt.ask(
+  await Clinext.prompt.ask(
     [
       // {
       //   name: 'protocolName',
@@ -36,49 +36,49 @@ export default async () => {
       },
     ])
 
-  if (!clinextbox.payload.protocolName) {
-    const name = capitalizeFirstLetter(clinextbox.payload.protocolId)
-    clinextbox.payload.protocolName = name
+  if (!Clinext.payload.protocolName) {
+    const name = capitalizeFirstLetter(Clinext.payload.protocolId)
+    Clinext.payload.protocolName = name
   }
 
-  if (!clinextbox.payload.protocolHomepageUrl) {
-    clinextbox.payload.protocolHomepageUrl = ""
+  if (!Clinext.payload.protocolHomepageUrl) {
+    Clinext.payload.protocolHomepageUrl = ""
   }
 
-  if (!clinextbox.payload.protocolDefaultSlug) {
-    clinextbox.payload.protocolDefaultSlug = clinextbox.payload.protocolId
+  if (!Clinext.payload.protocolDefaultSlug) {
+    Clinext.payload.protocolDefaultSlug = Clinext.payload.protocolId
   }
 
-  if (!clinextbox.payload.protocolHowTo) {
-    clinextbox.payload.protocolHowTo = ""
+  if (!Clinext.payload.protocolHowTo) {
+    Clinext.payload.protocolHowTo = ""
   }
 
-  // if (!clinextbox.payload.protocolFrameworkBridge) {
-  //   clinextbox.payload.protocolHomepageUrl = "@servable-community/parse-server-adapter"
+  // if (!Clinext.payload.protocolFrameworkBridge) {
+  //   Clinext.payload.protocolHomepageUrl = "@servable-community/parse-server-adapter"
   // }
 
-  if (!clinextbox.payload.protocolIconUrl) {
-    clinextbox.payload.protocolIconUrl = ""
+  if (!Clinext.payload.protocolIconUrl) {
+    Clinext.payload.protocolIconUrl = ""
   }
 
-  if (!clinextbox.payload.authorName) {
-    clinextbox.payload.authorName = ""
+  if (!Clinext.payload.authorName) {
+    Clinext.payload.authorName = ""
   }
 
-  if (!clinextbox.payload.authorEmail) {
-    clinextbox.payload.authorEmail = ""
+  if (!Clinext.payload.authorEmail) {
+    Clinext.payload.authorEmail = ""
   }
 
-  if (!clinextbox.payload.authorUrl) {
-    clinextbox.payload.authorUrl = ""
+  if (!Clinext.payload.authorUrl) {
+    Clinext.payload.authorUrl = ""
   }
 
-  if (!clinextbox.payload.authorGithubUrl) {
-    clinextbox.payload.authorGithubUrl = ""
+  if (!Clinext.payload.authorGithubUrl) {
+    Clinext.payload.authorGithubUrl = ""
   }
 
-  if (!clinextbox.payload.repositoryUrl) {
-    clinextbox.payload.repositoryUrl = ""
+  if (!Clinext.payload.repositoryUrl) {
+    Clinext.payload.repositoryUrl = ""
   }
 
   return true

@@ -5,12 +5,12 @@ import ChunkGit from '../../gitInit/index.js'
 
 export default async (props = {}) => {
   const {
-    destination = clinextbox.payload.destination,
+    destination = Clinext.payload.destination,
     askIndex = false
   } = props
-  clinextbox.payload.author = clinextbox.payload.author ? clinextbox.payload.author : ''
+  Clinext.payload.author = Clinext.payload.author ? Clinext.payload.author : ''
 
-  await clinextbox.fs.chunks.copy({
+  await Clinext.fs.chunks.copy({
     destination,
     source: '**/*',
   })
@@ -21,7 +21,7 @@ export default async (props = {}) => {
 
   await ChunkReleaseType.write({ destination })
   await ChunkPackageManager.write({ destination })
-  if (clinextbox.payload.gitInit) {
+  if (Clinext.payload.gitInit) {
     await ChunkGit.write({
       destination,
       useDefaultGitgnore: false
