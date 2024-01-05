@@ -1,5 +1,6 @@
 
 export default ({
+  _clinextType: 'command',
   name: 'app',
   description: `App 🐻`,
   options: [

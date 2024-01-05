@@ -1,9 +1,9 @@
-import ChunkAppContent from '../../lib/chunks/app/content/index.js'
+import ChunkAppContent from '../../../lib/chunks/app/content/index.js'
 
 export default ({
-  _clinextType: 'command',
-  name: 'new',
-  description: `Create a Servable app 🐻`,
+  _clinextType: "command",
+  name: 'use',
+  description: `Submit a protocol to the community`,
   options: [
     {
       name: 'appName',

@@ -1,6 +1,5 @@
 import ChunkShell from '../../lib/chunks/protocol/shell/index.js'
 
-
 export default ({
   _clinextType: "command",
   name: 'new',

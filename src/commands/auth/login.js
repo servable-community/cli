@@ -3,6 +3,7 @@ import axios from "axios"
 dotenv.config()
 
 export default ({
+  _clinextType: 'command',
   name: 'login',
   description: `Login 🐻`,
   options: [

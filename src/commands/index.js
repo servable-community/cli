@@ -1,5 +1,6 @@
 
 export default ({
+  _clinextType: 'command',
   name: 'servable',
   description: 'Servable Framework CLI 🐻',
   options: [
