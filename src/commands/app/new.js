@@ -33,7 +33,7 @@ export default ({
       },
       alias: 'a',
       defaultValue: '@servable/parse-server-adapter',
-      message: 'Framework adapter to use',
+      message: 'Framework bridge to use',
       validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
     },
     {

@@ -6,29 +6,13 @@ import updatePackageForEjectedProtocol from '../../lib/newactions/updatePackageF
 
 export default ({
   _clinextType: "command",
-  name: 'eject',
-  description: 'Eject a protocol 🐝',
+  name: 'add',
+  description: 'Add a protocol to an existing Servable App 🐝',
   options: [
     {
       name: 'appPath',
       message: "App to eject from",
       // validators: [{ id: 'nonempty' }]
-    },
-    {
-      name: 'protocolPath',
-      message: "Protocol to eject",
-      // validators: [{ id: 'nonempty' }]
-    },
-    {
-      name: 'destination',
-      message: "Where to eject",
-      // validators: [{ id: 'nonempty' }]
-    },
-    {
-      name: 'protocolDescription',
-    },
-    {
-      name: 'packageManager',
     },
     {
       name: 'installDependencies',
@@ -37,36 +21,28 @@ export default ({
       name: 'license',
     },
     {
-      name: 'gitInit',
+      name: 'description',
     },
-
-    // {
-    //   name: 'homepageUrl',
-    // },
-    // {
-    //   name: 'authorName',
-    // },
-    // {
-    //   name: 'authorEmail',
-    // },
-    // {
-    //   name: 'authorUrl',
-    // },
-    // {
-    //   name: 'authorGithubUrl',
-    // },
+    {
+      name: 'homepageUrl',
+    },
+    {
+      name: 'authorName',
+    },
+    {
+      name: 'authorEmail',
+    },
+    {
+      name: 'authorUrl',
+    },
+    {
+      name: 'authorGithubUrl',
+    },
     {
       name: 'releaseType',
-    },
-    {
-      name: 'updateApp',
-      type: 'boolean',
-      promptType: 'confirm',
-      defaultValue: true,
-      message: 'Update app after ejection'
     }
   ],
-  example: "$0 protocol eject",
+  example: "$0 protocol add",
   handler: async () => {
     await clinextbox.prompt.ask([
       {
