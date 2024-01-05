@@ -1,4 +1,9 @@
-import ask from './ask/index.js'
-import write from './write/index.js'
+import ask from './ask.js'
+import write from './write.js'
 
-export { ask, write }
+export default ({
+  _clinextType: "chunk",
+  id: "appContent",
+  ask,
+  write
+})

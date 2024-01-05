@@ -1,9 +1,11 @@
 
 export default async (props) => {
-  const { toolbox, destination } = props
+  const {
+    destination = clinextbox.payload.destination
+  } = props
 
-  const { payload } = toolbox
-  await toolbox.fs.chunks.copy({
+  const { payload } = clinextbox
+  await clinextbox.fs.chunks.copy({
     destination,
     source: '**/*',
     data: {
@@ -13,7 +15,7 @@ export default async (props) => {
   })
 
   if (payload._adapter && payload._adapter.dockercompose) {
-    await toolbox.fs.writeText({
+    await clinextbox.fs.writeText({
       destination: `${destination}/lib/app/system/docker/docker-compose.yaml`,
       text: payload._adapter.dockercompose,
       data: {

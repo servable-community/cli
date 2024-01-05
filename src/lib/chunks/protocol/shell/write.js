@@ -1,7 +1,7 @@
-import * as ChunkIndex from '../index/index.js'
-import * as ChunkReleaseType from '../../shared/releaseType/index.js'
-import * as ChunkPackageManager from '../../shared/packageManager/index.js'
-import * as ChunkGit from '../../shared/gitInit/index.js'
+import ChunkIndex from '../index/index.js'
+import ChunkReleaseType from '../../releaseType/index.js'
+import ChunkPackageManager from '../../packageManager/index.js'
+import ChunkGit from '../../gitInit/index.js'
 
 export default async (props = {}) => {
   const {

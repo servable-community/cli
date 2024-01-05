@@ -1,4 +1,4 @@
-import * as ChunkShell from '../../lib/chunks/protocol/shell/index.js'
+import ChunkShell from '../../lib/chunks/protocol/shell/index.js'
 
 
 export default ({

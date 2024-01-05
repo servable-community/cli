@@ -1,48 +1,30 @@
-import * as ChunkShell from '../../lib/chunks/protocol/shell/index.js'
-import fillPayloadWithProtocolIndex from '../../lib/newactions/fillPayloadWithProtocolIndex.js'
-import removeEjectedProtocol from '../../lib/newactions/removeEjectedProtocol/index.js'
-import updatePackageForEjectedProtocol from '../../lib/newactions/updatePackageForEjectedProtocol/index.js'
-
+import ChunkProtocolContent from '../../lib/chunks/protocol/content/index.js'
 
 export default ({
   _clinextType: "command",
   name: 'add',
-  description: 'Add a protocol to an existing Servable App 🐝',
+  description: 'Add an empty protocol to a Servable app 🐝',
   options: [
     {
       name: 'appPath',
-      message: "App to eject from",
+      message: "App to add a protocol to",
       // validators: [{ id: 'nonempty' }]
     },
     {
-      name: 'installDependencies',
+      name: 'protocolId',
+      validators: [{
+        id: 'nonEmpty'
+      }]
     },
+    {
+      name: 'protocolDescription',
+    },
+
     {
       name: 'license',
     },
-    {
-      name: 'description',
-    },
-    {
-      name: 'homepageUrl',
-    },
-    {
-      name: 'authorName',
-    },
-    {
-      name: 'authorEmail',
-    },
-    {
-      name: 'authorUrl',
-    },
-    {
-      name: 'authorGithubUrl',
-    },
-    {
-      name: 'releaseType',
-    }
   ],
-  example: "$0 protocol add",
+  example: "$0 protocol eject",
   handler: async () => {
     await clinextbox.prompt.ask([
       {
@@ -52,46 +34,18 @@ export default ({
 
     await clinextbox.prompt.ask([
       {
-        root: `${clinextbox.payload.appPath}/lib/protocols`,
-        name: 'protocolPath',
+        name: 'protocolId',
       },
     ])
 
-    await fillPayloadWithProtocolIndex({ protocolPath: clinextbox.payload.protocolPath })
+    clinextbox.payload.destination = `${clinextbox.payload.appPath}/lib/protocols/${clinextbox.payload.protocolId}`
 
-    await clinextbox.prompt.ask([
-      {
-        name: 'destination',
-      },
-    ])
-
-    clinextbox.payload.destination = `${clinextbox.payload.destination}/${clinextbox.payload.protocolId}`
-
-
-    let pass = await ChunkShell.ask()
+    let pass = await ChunkProtocolContent.ask()
 
     if (!pass) {
       return
     }
 
-    await ChunkShell.write()
-
-    await clinextbox.fs.copyAdvanced({
-      destination: `${clinextbox.payload.destination}/src`,
-      source: `${clinextbox.payload.protocolPath}/**/*`,
-      rootSource: `${clinextbox.payload.protocolPath}`,
-      render: false
-    })
-
-
-    await clinextbox.prompt.ask([
-      {
-        name: 'updateApp',
-      },
-    ])
-    if (clinextbox.payload.updateApp) {
-      await updatePackageForEjectedProtocol({})
-      await removeEjectedProtocol({})
-    }
+    await ChunkProtocolContent.write()
   },
 })

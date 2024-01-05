@@ -80,4 +80,6 @@ export default async () => {
   if (!clinextbox.payload.repositoryUrl) {
     clinextbox.payload.repositoryUrl = ""
   }
+
+  return true
 }

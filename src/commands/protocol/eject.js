@@ -1,4 +1,4 @@
-import * as ChunkShell from '../../lib/chunks/protocol/shell/index.js'
+import ChunkShell from '../../lib/chunks/protocol/shell/index.js'
 import fillPayloadWithProtocolIndex from '../../lib/newactions/fillPayloadWithProtocolIndex.js'
 import removeEjectedProtocol from '../../lib/newactions/removeEjectedProtocol/index.js'
 import updatePackageForEjectedProtocol from '../../lib/newactions/updatePackageForEjectedProtocol/index.js'

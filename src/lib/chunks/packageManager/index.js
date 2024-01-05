@@ -3,7 +3,7 @@ import write from './write.js'
 
 export default ({
   _clinextType: "chunk",
-  id: "protocolShell",
+  id: "packageManager",
   ask,
   write
 })

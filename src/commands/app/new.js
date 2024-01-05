@@ -1,4 +1,4 @@
-import * as AppContent from '../../lib/chunks/app/content/index.js'
+import ChunkAppContent from '../../lib/chunks/app/content/index.js'
 
 export default ({
   type: "command",
@@ -24,15 +24,7 @@ export default ({
       validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
     },
     {
-      name: 'adapterId',
-      type: 'string',
-      prompt: {
-        "type": 'autocomplete',
-        // "module": "inquirer"
-
-      },
-      alias: 'a',
-      defaultValue: '@servable/parse-server-adapter',
+      name: 'bridgeframeworkId',
       message: 'Framework bridge to use',
       validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
     },
@@ -87,17 +79,12 @@ export default ({
     // },
   ],
   example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
-  handler: async ({ toolbox, }) => {
-
-    const passed = await AppContent.ask({ toolbox, })
+  handler: async () => {
+    const passed = await ChunkAppContent.ask()
     if (!passed) {
       return
     }
 
-    await AppContent.write({
-      toolbox,
-      payload: toolbox.payload,
-      destination: toolbox.payload.destination
-    })
+    await ChunkAppContent.write()
   },
 })

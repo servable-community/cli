@@ -5,18 +5,18 @@
 // import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 
 
-import search from './api/search.js'
-import getById from './api/getById.js'
+import search from './lib/api/search.js'
+import getById from './lib/api/getById.js'
 
-export default async (props) => {
-  const { toolbox, } = props
-  toolbox.ui.drawSectionHeader({
+export default async () => {
+
+  clinextbox.ui.drawSectionHeader({
     type: 'h2',
     title: `App informations 🚀`,
     subTitle: `Servable required general informations.`
   })
 
-  await toolbox.prompt.ask([
+  await clinextbox.prompt.ask([
     {
       name: 'appPort',
     },
@@ -37,8 +37,8 @@ export default async (props) => {
     },
   ])
 
-  await toolbox.prompt.ask({
-    name: 'adapterId',
+  await clinextbox.prompt.ask({
+    name: 'bridgeframeworkId',
     suggestOnly: false,
     searchText: 'Searching...',
     emptyText: 'Nothing found!',
@@ -46,22 +46,22 @@ export default async (props) => {
     pageSize: 10,
   })
 
-  const item = await getById({ id: toolbox.payload['adapterId'], })
+  const item = await getById({ id: clinextbox.payload['bridgeframeworkId'], })
   if (!item) {
     console.log('Could not find adapter in registry.')
     return false
   }
 
-  toolbox.payload._adapter = item
+  clinextbox.payload._adapter = item
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
   if (hasUsage) {
-    toolbox.ui.drawSectionHeader({
+    clinextbox.ui.drawSectionHeader({
       title: `${index.id} parameters`,
       subTitle: `Fill this framework specific parameters.`
     })
-    await toolbox.prompt.ask(item.index.usage.parameters)
-    toolbox.ui.drawSectionHeader({
+    await clinextbox.prompt.ask(item.index.usage.parameters)
+    clinextbox.ui.drawSectionHeader({
       title: `---`,
     })
   }
