@@ -36,8 +36,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "engine"
+    "src"
   ],
   "engines": {
     "node": ">=10"
@@ -76,7 +75,7 @@
   ],
   "keywords": [],
   "dependencies": {
-    "@clinext/sdk": "^1.16.0",
+    "@clinext/sdk": "^1.17.0",
     "@servable/manifest": "1.15.0",
     "axios": "^1.6.1",
     "dotenv": "^16.0.1",
