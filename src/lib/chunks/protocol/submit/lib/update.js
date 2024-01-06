@@ -1,28 +1,20 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-
-import protocolIndex from "../../../../lib/protocolIndex.js"
-import uniqueRefExists from './uniqueRefExists/get.js'
-import askRegistryLogin from '../../../shared/registry/login/ask/index.js'
-
+import uniqueRefExists from './uniqueRefExists.js'
 
 export default async (props) => {
-  const { toolbox, payload } = props
-  payload.registrySubmitMode = 'update'
+  const { index } = props
+  CliNext.payload.registrySubmitMode = 'update'
 
-  const index = await protocolIndex(payload.targetProtocolPath)
   if (!index || !index.registry || !index.registry.id) {
     return true
   }
 
-  payload.registryUniqueRef = index.registry.id
+  CliNext.payload.registryUniqueRef = index.registry.id
 
-  const exists = await uniqueRefExists({ protocolId: payload.registryUniqueRef })
+  const exists = await uniqueRefExists({ protocolId: CliNext.payload.registryUniqueRef })
   if (!exists) {
-    toolbox.log(`The protocol with the id ${index.id} has already been submitted but can't be found. Please retry later.`)
+    console.log(`The protocol with the id ${index.id} has already been submitted but can't be found. Please retry later.`)
     return false
   }
 
-  return askRegistryLogin({ ...props, initiate: true })
+  return true
 }

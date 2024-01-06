@@ -1,16 +1,16 @@
 export default async (props = {}) => {
   const {
-    destination = Clinext.payload.destination,
+    destination = CliNext.payload.destination,
     useDefaultGitgnore = false,
   } = props
 
 
   if (useDefaultGitgnore) {
-    await Clinext.fs.chunks.copy({
+    await CliNext.fs.chunks.copy({
       destination,
       source: '{.}gitignore',
     })
   }
 
-  return Clinext.git.init({ destination })
+  return CliNext.git.init({ destination })
 }

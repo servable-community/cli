@@ -1,6 +1,6 @@
 export default async (props) => {
-  const { destination = Clinext.payload.destination } = props
-  await Clinext.fs.chunks.copy({
+  const { destination = CliNext.payload.destination } = props
+  await CliNext.fs.chunks.copy({
     destination,
     source: '**/*',
   })

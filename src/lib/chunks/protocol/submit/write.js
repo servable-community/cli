@@ -1,20 +1,12 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-import { fileURLToPath } from "url"
-import { dirname } from "path"
 import submitProtocol from "./lib/submitProtocol/index.js"
 import updateProtocol from "./lib/updateProtocol/index.js"
 
 export default async (props) => {
 
-  const { toolbox, payload, } = props
-  const __filename = fileURLToPath(import.meta.url)
-  const __dirname = dirname(__filename)
 
-  const path = payload.targetProtocolPath
+  const path = CliNext.payload.protocolPath
 
-  switch (payload.registrySubmitMode) {
+  switch (CliNext.payload.registrySubmitMode) {
     case 'update': {
 
     } break
@@ -25,15 +17,14 @@ export default async (props) => {
 
   const submitted = await submitProtocol({
     path,
-    toolbox,
-    payload,
-    mode: payload.registrySubmitMode,
-    uniqueRef: payload.registryUniqueRef
+    mode: CliNext.payload.registrySubmitMode,
+    uniqueRef: CliNext.payload.registryUniqueRef
   })
+
   if (!submitted) {
     return false
   }
 
-  return updateProtocol(props)
+  return updateProtocol()
 }
 

@@ -7,18 +7,18 @@ export default async (props) => {
   if (!index) {
     return
   }
-  Clinext.payload._protocolIndex = index
+  CliNext.payload._protocolIndex = index
 
-  Clinext.payload.protocolId = index.id
-  Clinext.payload.description = index.author.description
-  Clinext.payload.license = index.license
-  Clinext.payload.name = index.name
+  CliNext.payload.protocolId = index.id
+  CliNext.payload.description = index.author.description
+  CliNext.payload.license = index.license
+  CliNext.payload.name = index.name
   if (index.author) {
-    Clinext.payload.authorName = index.author.name
-    Clinext.payload.authorEmail = index.author.email
-    Clinext.payload.url = index.author.url
-    Clinext.payload.github = index.author.github
+    CliNext.payload.authorName = index.author.name
+    CliNext.payload.authorEmail = index.author.email
+    CliNext.payload.url = index.author.url
+    CliNext.payload.github = index.author.github
   }
-  Clinext.payload.repositoryUrl = ''
-  Clinext.payload.homepageUrl = ''
+  CliNext.payload.repositoryUrl = ''
+  CliNext.payload.homepageUrl = ''
 }

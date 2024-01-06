@@ -1,33 +1,30 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-
-import protocolIndex from "../../../lib/protocolIndex.js"
-import askForGeneric from "../../../prompts/utils/askForGeneric.js"
+import protocolIndex from "../../../newactions/protocolIndex.js"
 import create from "./lib/create.js"
 import update from './lib/update.js'
 
-export default async (props) => {
-  const { toolbox, payload } = props
+export default async () => {
 
-  const index = await protocolIndex(payload.targetProtocolPath)
+  await CliNext.prompt.ask([
+    {
+      name: 'protocolPath',
+    },
+  ])
+
+  const index = await protocolIndex(CliNext.payload.protocolPath)
+  CliNext.payload._protocolIndex = index
+
   if (!index || !index.registry || !index.registry.id) {
-    return create(props)
+    return create({ index })
   }
 
-  toolbox.log(`Your protocol ${index.id} has already been submitted as ${index.registry.id}`)
-  if ((await askForGeneric({
-    ...props, options: {
-      ...props.options,
-      type: 'confirm',
-      name: 'registryUpdate',
-    }
-  }))) {
-    return update(props)
+  console.log(`Your protocol ${index.id} has already been submitted as ${index.registry.id}`)
+  if ((await CliNext.prompt.ask({
+    name: 'registryUpdate',
+  }
+
+  ))) {
+    return update({ index })
   }
 
   return false
 }
-
-
-

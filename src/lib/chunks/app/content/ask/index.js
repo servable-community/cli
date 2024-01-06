@@ -10,13 +10,13 @@ import getById from './api/getById.js'
 
 export default async () => {
 
-  Clinext.ui.drawSectionHeader({
+  CliNext.ui.drawSectionHeader({
     type: 'h2',
     title: `App informations 🚀`,
     subTitle: `Servable required general informations.`
   })
 
-  await Clinext.prompt.ask([
+  await CliNext.prompt.ask([
     {
       name: 'appPort',
     },
@@ -37,7 +37,7 @@ export default async () => {
     },
   ])
 
-  await Clinext.prompt.ask({
+  await CliNext.prompt.ask({
     name: 'bridgeframeworkId',
     suggestOnly: false,
     searchText: 'Searching...',
@@ -46,22 +46,22 @@ export default async () => {
     pageSize: 10,
   })
 
-  const item = await getById({ id: Clinext.payload['bridgeframeworkId'], })
+  const item = await getById({ id: CliNext.payload['bridgeframeworkId'], })
   if (!item) {
     console.log('Could not find adapter in registry.')
     return false
   }
 
-  Clinext.payload._adapter = item
+  CliNext.payload._adapter = item
   const { index } = item
   const hasUsage = (item && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
   if (hasUsage) {
-    Clinext.ui.drawSectionHeader({
+    CliNext.ui.drawSectionHeader({
       title: `${index.id} parameters`,
       subTitle: `Fill this framework specific parameters.`
     })
-    await Clinext.prompt.ask(item.index.usage.parameters)
-    Clinext.ui.drawSectionHeader({
+    await CliNext.prompt.ask(item.index.usage.parameters)
+    CliNext.ui.drawSectionHeader({
       title: `---`,
     })
   }

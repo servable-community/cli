@@ -3,8 +3,8 @@ import chalk from 'chalk'
 
 export default ({
   _clinextType: 'command',
-  name: 'submit',
-  description: `Use a protocol`,
+  name: 'list',
+  description: `List protocols`,
   options: [
   ],
   handler: async () => {
@@ -17,3 +17,4 @@ export default ({
 
   }
 })
+

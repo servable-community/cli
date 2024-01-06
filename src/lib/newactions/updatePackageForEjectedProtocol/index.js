@@ -7,9 +7,9 @@ import projectPackageJson from "./lib/projectPackageJson.js"
 export default async (props) => {
 
   const {
-    appPath = Clinext.payload.appPath,
-    destination = Clinext.payload.destination,
-    protocolId = Clinext.payload.protocolId,
+    appPath = CliNext.payload.appPath,
+    destination = CliNext.payload.destination,
+    protocolId = CliNext.payload.protocolId,
   } = props
 
   const packageJson = await projectPackageJson(appPath)
@@ -23,5 +23,5 @@ export default async (props) => {
   }
 
   const packageJsonPath = `${appPath}/package.json`
-  return Clinext.fs.writeJSON({ text: packageJson, destination: packageJsonPath })
+  return CliNext.fs.writeJSON({ text: packageJson, destination: packageJsonPath })
 }

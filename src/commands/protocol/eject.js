@@ -68,28 +68,28 @@ export default ({
   ],
   example: "$0 protocol eject",
   handler: async () => {
-    await Clinext.prompt.ask([
+    await CliNext.prompt.ask([
       {
         name: 'appPath',
       },
     ])
 
-    await Clinext.prompt.ask([
+    await CliNext.prompt.ask([
       {
-        root: `${Clinext.payload.appPath}/lib/protocols`,
+        root: `${CliNext.payload.appPath}/lib/protocols`,
         name: 'protocolPath',
       },
     ])
 
-    await fillPayloadWithProtocolIndex({ protocolPath: Clinext.payload.protocolPath })
+    await fillPayloadWithProtocolIndex({ protocolPath: CliNext.payload.protocolPath })
 
-    await Clinext.prompt.ask([
+    await CliNext.prompt.ask([
       {
         name: 'destination',
       },
     ])
 
-    Clinext.payload.destination = `${Clinext.payload.destination}/${Clinext.payload.protocolId}`
+    CliNext.payload.destination = `${CliNext.payload.destination}/${CliNext.payload.protocolId}`
 
 
     let pass = await ChunkShell.ask()
@@ -100,20 +100,20 @@ export default ({
 
     await ChunkShell.write()
 
-    await Clinext.fs.copyAdvanced({
-      destination: `${Clinext.payload.destination}/src`,
-      source: `${Clinext.payload.protocolPath}/**/*`,
-      rootSource: `${Clinext.payload.protocolPath}`,
+    await CliNext.fs.copyAdvanced({
+      destination: `${CliNext.payload.destination}/src`,
+      source: `${CliNext.payload.protocolPath}/**/*`,
+      rootSource: `${CliNext.payload.protocolPath}`,
       render: false
     })
 
 
-    await Clinext.prompt.ask([
+    await CliNext.prompt.ask([
       {
         name: 'updateApp',
       },
     ])
-    if (Clinext.payload.updateApp) {
+    if (CliNext.payload.updateApp) {
       await updatePackageForEjectedProtocol({})
       await removeEjectedProtocol({})
     }

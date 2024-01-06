@@ -2,25 +2,22 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import protocolIndex from "../../../../../lib/protocolIndex.js"
+import protocolIndex from "../../../../../newactions/protocolIndex.js"
 
+export default async () => {
 
-export default async (props) => {
-    const { payload, toolbox, path, mode } = props
-
-    try {
-
-        const index = await protocolIndex(payload.targetProtocolPath)
-        index.registry = {
-            id: payload.registryUniqueRef
-        }
-        const targetPath = `${payload.targetProtocolPath}/index.json`
-        toolbox.fs.writeJSON(targetPath, index)
-        return true
-    } catch (e) {
-        console.error(e)
+  try {
+    const index = await protocolIndex(CliNext.payload.protocolPath)
+    index.registry = {
+      id: CliNext.payload.registryUniqueRef
     }
+    const targetPath = `${CliNext.payload.protocolPath}/index.json`
+    await CliNext.fs.writeJSON({ destination: targetPath, text: index })
+    return true
+  } catch (e) {
+    console.error(e)
+  }
 
-    return false
+  return false
 }
 

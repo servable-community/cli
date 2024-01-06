@@ -1,90 +1,59 @@
-import ChunkAppContent from '../../../lib/chunks/app/content/index.js'
-
+import loginIfNecessary from "../../../lib/newlib/auth/login/loginIfNecessary.js"
+import chalk from 'chalk'
+import ChunkSubmit from '../../../lib/chunks/protocol/submit/index.js'
 export default ({
-  _clinextType: "command",
-  name: 'use',
-  description: `Submit a protocol to the community`,
+  _clinextType: 'command',
+  name: 'submit',
+  description: `Submit a protocol`,
   options: [
     {
-      name: 'appName',
-      type: 'string',
-      promptType: 'input',
-      alias: 'n',
-      defaultValue: 'MyAppName',
-      message: 'App name',
-      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
+      name: 'protocolPath',
+      message: "Protocol to submit",
+      // validators: [{ id: 'nonempty' }]
+    },
+    {
+      name: 'registryUpdate',
+      type: 'boolean',
+      message: "Update protocol in registry",
+      promptType: 'confirm',
+      defaultValue: false,
+    },
 
-    },
     {
-      name: 'appDescription',
+      name: 'registrySubmitMode',
       type: 'string',
+      message: 'Registry submit mode (create or update)',
+      promptType: 'list',
+      defaultValue: 'create',
+      choices: [
+        "create",
+        "update",
+      ],
+    },
+    {
+      name: 'registryUniqueRef',
+      type: 'string',
+      message: 'Registry unique reference',
       promptType: 'input',
-      defaultValue: 'A Servable app',
-      message: 'App description',
-      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
-    },
-    {
-      name: 'bridgeframeworkId',
-      message: 'Framework bridge to use',
-      validators: [{ id: 'nonempty', params: { maxParams: 12 } }]
-    },
-    {
-      name: 'installDependencies',
-    }, {
-      name: 'license',
-    },
-    {
-      name: 'packageManager',
-    },
-    {
-      name: 'gitInit',
-    },
-    {
-      name: 'destination',
-    },
-    {
-      name: 'appPort',
-      type: 'number',
-      prompt: {
-        type: 'input',
-      },
-      defaultValue: 1387,
-      message: 'App port',
-      validators: [{
-        id: 'nonEmpty', params: { maxParams: 12 }
-      },
-      {
-        id: 'isnumber', params: { maxParams: 12 }
-      },],
-      transformers: {
-        in: [{
-          id: "getPort"
-        }],
-        // out: [{
-        //   id: "theme"
-        // },
-        // {
-        //   template: "New value: <%= value %>",
-        // }]
-      },
-    },
-    // {
-    //   name: 'appId',
-    //   type: 'string',
-    // promptType: 'input',
-    //   alias: 'n',
-    //   defaultValue: 'MyAppID',
-    //   message: 'App name',
-    //   validators: [{ type: 'nonEmpty', params: { maxParams: 12 } }]
-    // },
+    }
+
   ],
-  example: "$0 app new --appName='MyApp' --adapter='@servable/cli'",
   handler: async () => {
-    const passed = await ChunkAppContent.ask()
-    if (!passed) {
+    const isLoggedIn = await loginIfNecessary()
+    if (!isLoggedIn) {
+      console.log(`🔴`, chalk.bold.red(`You are not logged in.`))
       return
     }
 
-    await ChunkAppContent.write()
-  },
+    await CliNext.prompt.ask([
+      {
+        // root: `${CliNext.payload.appPath}/lib/protocols`,
+        name: 'protocolPath',
+      },
+    ])
+
+    if ((await ChunkSubmit.ask())) {
+      await ChunkSubmit.write()
+    }
+  }
 })

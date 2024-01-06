@@ -4,7 +4,7 @@
 import fs from 'fs';
 
 export default async (props) => {
-  const { protocolPath = Clinext.payload.protocolPath } = props
+  const { protocolPath = CliNext.payload.protocolPath } = props
   return fs.promises.rm(protocolPath, {
     recursive: true,
     force: true

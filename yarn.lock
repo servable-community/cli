@@ -1046,10 +1046,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@clinext/sdk@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@clinext/sdk/-/sdk-1.16.0.tgz#34afb56be080bbd6992a079ce0750d988a9601cb"
-  integrity sha512-RVkBtwbESl8EcBT6drBluNNZiTN6vndJvB63MmopQ1v2H+QhshgT9mEKT38O/PYzFZdaGiZEOjieazXhAl6Urw==
+"@clinext/sdk@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@clinext/sdk/-/sdk-1.18.0.tgz#f9c42ba04bf4e2380d3aa9ec08c5d6b2a07b2988"
+  integrity sha512-YrcoAvNm1uqmJHA3B13B9y/ugP+XU3QKwKX5BRYYKWSvMg64RNZAbK093Ms2mAmdOskfzLKItP9zlTLh9i6dSw==
   dependencies:
     "@inkjs/ui" "^1.0.0"
     axios "^1.6.1"
@@ -1883,10 +1883,10 @@
     lodash-es "^4.17.21"
     read-pkg-up "^11.0.0"
 
-"@servable/manifest@1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@servable/manifest/-/manifest-1.15.0.tgz#38d85f1a062a3d9f0000b596dd304649ac4c6052"
-  integrity sha512-rXWu3fSd19Sc6Ac+I8/+Npy2GRgHtTIbhurmFy+cafyIuxLo5zAi82uGSidgA/ATnH3Ln73r/EGdYVAJgn3Q/g==
+"@servable/manifest@^1.19.0":
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/@servable/manifest/-/manifest-1.19.0.tgz#1aa59ae5f8480fefc520a3d7b301df09c07f4b1e"
+  integrity sha512-e7sRQbU6ZAmsQin5GquHk4/fFE0+izKO6ba7BFeReOzSqlyOJ/FseCUSskZ/U8hSqbE+dpd1pg7eKEQo8fg7uQ==
   dependencies:
     bluebird "^3.7.2"
     fs-extra "^11.2.0"

@@ -2,12 +2,12 @@ import ChunkIndex from '../index/index.js'
 import ChunkTriggers from '../../triggers/index.js'
 
 export default async (props = {}) => {
-  const { destination = Clinext.payload.destination } = props
+  const { destination = CliNext.payload.destination } = props
 
-  Clinext.payload.protocolDescription = Clinext.payload.protocolDescription ? Clinext.payload.protocolDescription : ''
-  Clinext.payload.author = Clinext.payload.author ? Clinext.payload.author : ''
+  CliNext.payload.protocolDescription = CliNext.payload.protocolDescription ? CliNext.payload.protocolDescription : ''
+  CliNext.payload.author = CliNext.payload.author ? CliNext.payload.author : ''
 
-  await Clinext.fs.chunks.copy({
+  await CliNext.fs.chunks.copy({
     destination,
     source: '**/*',
   })

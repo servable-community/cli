@@ -2,8 +2,8 @@ import ChunkProtocolContent from '../../lib/chunks/protocol/content/index.js'
 
 export default ({
   _clinextType: "command",
-  name: 'add',
-  description: 'Add an empty protocol to a Servable app 🐝',
+  name: 'document',
+  description: 'Generate protocol documentation 🐝',
   options: [
     {
       name: 'appPath',

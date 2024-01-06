@@ -3,8 +3,8 @@ import chalk from 'chalk'
 
 export default ({
   _clinextType: 'command',
-  name: 'auth',
-  description: `Authentication`,
+  name: 'status',
+  description: `Authentication status`,
   options: [
   ],
   handler: async () => {

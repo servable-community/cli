@@ -2,7 +2,7 @@ import capitalizeFirstLetter from '../../../newlib/capitalizeFirstLetter.js'
 
 export default async () => {
 
-  await Clinext.prompt.ask(
+  await CliNext.prompt.ask(
     [
       // {
       //   name: 'protocolName',
@@ -36,49 +36,49 @@ export default async () => {
       },
     ])
 
-  if (!Clinext.payload.protocolName) {
-    const name = capitalizeFirstLetter(Clinext.payload.protocolId)
-    Clinext.payload.protocolName = name
+  if (!CliNext.payload.protocolName) {
+    const name = capitalizeFirstLetter(CliNext.payload.protocolId)
+    CliNext.payload.protocolName = name
   }
 
-  if (!Clinext.payload.protocolHomepageUrl) {
-    Clinext.payload.protocolHomepageUrl = ""
+  if (!CliNext.payload.protocolHomepageUrl) {
+    CliNext.payload.protocolHomepageUrl = ""
   }
 
-  if (!Clinext.payload.protocolDefaultSlug) {
-    Clinext.payload.protocolDefaultSlug = Clinext.payload.protocolId
+  if (!CliNext.payload.protocolDefaultSlug) {
+    CliNext.payload.protocolDefaultSlug = CliNext.payload.protocolId
   }
 
-  if (!Clinext.payload.protocolHowTo) {
-    Clinext.payload.protocolHowTo = ""
+  if (!CliNext.payload.protocolHowTo) {
+    CliNext.payload.protocolHowTo = ""
   }
 
-  // if (!Clinext.payload.protocolFrameworkBridge) {
-  //   Clinext.payload.protocolHomepageUrl = "@servable-community/parse-server-adapter"
+  // if (!CliNext.payload.protocolFrameworkBridge) {
+  //   CliNext.payload.protocolHomepageUrl = "@servable-community/parse-server-adapter"
   // }
 
-  if (!Clinext.payload.protocolIconUrl) {
-    Clinext.payload.protocolIconUrl = ""
+  if (!CliNext.payload.protocolIconUrl) {
+    CliNext.payload.protocolIconUrl = ""
   }
 
-  if (!Clinext.payload.authorName) {
-    Clinext.payload.authorName = ""
+  if (!CliNext.payload.authorName) {
+    CliNext.payload.authorName = ""
   }
 
-  if (!Clinext.payload.authorEmail) {
-    Clinext.payload.authorEmail = ""
+  if (!CliNext.payload.authorEmail) {
+    CliNext.payload.authorEmail = ""
   }
 
-  if (!Clinext.payload.authorUrl) {
-    Clinext.payload.authorUrl = ""
+  if (!CliNext.payload.authorUrl) {
+    CliNext.payload.authorUrl = ""
   }
 
-  if (!Clinext.payload.authorGithubUrl) {
-    Clinext.payload.authorGithubUrl = ""
+  if (!CliNext.payload.authorGithubUrl) {
+    CliNext.payload.authorGithubUrl = ""
   }
 
-  if (!Clinext.payload.repositoryUrl) {
-    Clinext.payload.repositoryUrl = ""
+  if (!CliNext.payload.repositoryUrl) {
+    CliNext.payload.repositoryUrl = ""
   }
 
   return true
