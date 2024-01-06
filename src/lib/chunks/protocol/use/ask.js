@@ -2,36 +2,21 @@ import search from './lib/api/search.js'
 import getById from './lib/api/getById.js'
 
 export default async () => {
-
-  CliNext.ui.drawSectionHeader({
-    type: 'h2',
-    title: `App informations 🚀`,
-    subTitle: `Servable required general informations.`
-  })
+  await CliNext.prompt.ask([
+    {
+      name: 'appPath',
+    },
+  ])
 
   await CliNext.prompt.ask([
     {
-      name: 'appPort',
-    },
-    {
-      name: 'destination',
-    },
-    {
-      name: 'appName',
-    },
-    {
-      name: 'license',
-    },
-    {
-      name: 'packageManager',
-    },
-    {
-      name: 'gitInit',
+      name: 'classPath',
+      root: `${CliNext.payload.appPath}`
     },
   ])
 
   await CliNext.prompt.ask({
-    name: 'bridgeframeworkId',
+    name: 'protocolIdAutoComplete',
     suggestOnly: false,
     searchText: 'Searching...',
     emptyText: 'Nothing found!',
@@ -39,13 +24,13 @@ export default async () => {
     pageSize: 10,
   })
 
-  const item = await getById({ id: CliNext.payload['bridgeframeworkId'], })
+  const item = await getById({ id: CliNext.payload['protocolIdAutoComplete'], })
   if (!item) {
-    console.log('Could not find adapter in registry.')
+    console.log('Could not find protocol in registry.')
     return false
   }
 
-  CliNext.payload._adapter = item
+  CliNext.payload._communityProtocolToUse = item
   const { index } = item
   const hasUsage = (item && item.index && item.index.usage && item.index.usage.parameters && item.index.usage.parameters.length)
   if (hasUsage) {

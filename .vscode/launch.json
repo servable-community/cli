@@ -299,5 +299,49 @@
         "${workspaceFolder}/build/**/*.js"
       ]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Use a community protocol",
+      "stopOnEntry": false,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/src/app.js",
+      "args": [
+        "protocol",
+        "community",
+        "use",
+        "--appPath",
+        "/Users/anak/YourouNak/development/servable/core/cli/_archive/main",
+        "--classPath",
+        "/Users/anak/YourouNak/development/servable/core/cli/_archive/main/lib/protocols/@servable-community/commentable/classes/commentableentry",
+        "--protocolIdAutoComplete",
+        "@servable-community/shipable"
+        // "-q"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "envFile": "${workspaceFolder}/.env.development",
+      "runtimeArgs": [
+        // "--trace-warnings",
+        "--require=dotenv/config",
+        "--nolazy",
+        "--expose-gc",
+        "--inspect-brk",
+        "--experimental-modules",
+        "--es-module-specifier-resolution=node",
+        "--experimental-specifier-resolution=node"
+        //"--unhandled-rejections=strict"
+      ],
+      // "preLaunchTask": "tsc: build - tsconfig.json",
+      // "sourceMaps": true,
+      "smartStep": true,
+      "console": "integratedTerminal",
+      "outFiles": [
+        "${workspaceFolder}/build/**/*.js"
+      ]
+    },
   ]
 }
