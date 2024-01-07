@@ -100,7 +100,7 @@ export default ({
 
     await ChunkShell.write()
 
-    await CliNext.fs.copyAdvanced({
+    await CliNext.fs.copyWithRootSource({
       destination: `${CliNext.payload.destination}/src`,
       source: `${CliNext.payload.protocolPath}/**/*`,
       rootSource: `${CliNext.payload.protocolPath}`,

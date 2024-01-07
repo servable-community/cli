@@ -1,11 +1,10 @@
-import getFileCallerURL from '../lib/getFileCallerURL.js'
+import getFileCallerURL from './getFileCallerURL.js'
 import _path from 'path'
 
 export default async ({ toolbox }) => {
 
   toolbox.fs.chunks = {
     copy: async (props) => {
-
 
       let rootSource = props.source
       let source = props.source
@@ -16,7 +15,7 @@ export default async ({ toolbox }) => {
       rootSource = `${sou}/template`
       source = `${sou}/template/${source}`
 
-      return toolbox.fs.copyAdvanced({ ...props, source, rootSource })
+      return toolbox.fs.copyWithRootSource({ ...props, source, rootSource })
     }
   }
 }

@@ -1,4 +1,4 @@
-import fs from './register/fs.js'
+import fs from './lib/fs.js'
 
 export default ({
   id: "fractions",

@@ -1883,10 +1883,10 @@
     lodash-es "^4.17.21"
     read-pkg-up "^11.0.0"
 
-"@servable/manifest@^1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@servable/manifest/-/manifest-1.19.0.tgz#1aa59ae5f8480fefc520a3d7b301df09c07f4b1e"
-  integrity sha512-e7sRQbU6ZAmsQin5GquHk4/fFE0+izKO6ba7BFeReOzSqlyOJ/FseCUSskZ/U8hSqbE+dpd1pg7eKEQo8fg7uQ==
+"@servable/manifest@^1.20.0":
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/@servable/manifest/-/manifest-1.20.0.tgz#d21b8116bc1660efa39b4e1fa235b0d209b8afd3"
+  integrity sha512-vSbBxWuP528E27jBm/FAg7kwkKtI1JDWA30+xQ0kSmvnlJwBSjy4k43IGyBOSPWioaaFVHTFTtLbMql17FNPgg==
   dependencies:
     bluebird "^3.7.2"
     fs-extra "^11.2.0"
