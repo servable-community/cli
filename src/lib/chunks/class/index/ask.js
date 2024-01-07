@@ -1,4 +1,4 @@
-import protocolSchemaOwnClasses from "../../../newlib/classInformations/lib/protocolSchemaOwnClasses"
+import protocolSchemaOwnClasses from "../../../newlib/classInformations/lib/protocolSchemaOwnClasses.js"
 
 export default async ({
   protocolPath = CliNext.payload.protocolPath
