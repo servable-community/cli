@@ -3,6 +3,7 @@ import chalk from 'chalk'
 
 export default ({
   _clinextType: 'command',
+  position: 0,
   name: 'auth',
   description: `Authentication`,
   options: [

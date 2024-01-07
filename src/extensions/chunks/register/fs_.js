@@ -11,12 +11,12 @@ import ensureDirectoryExists from '../lib/ensureDirectoryExists.js'
 
 export default async ({ toolbox }) => {
 
-  toolbox.fs.chunks = {
+  CliNext.fs.chunks = {
     copy: async (props) => {
       const {
         source,
-        destination = toolbox.payload.destination,
-        data = toolbox.payload,
+        destination = CliNext.payload.destination,
+        data = CliNext.payload,
         options = { mark: true },
         render = true
       } = props

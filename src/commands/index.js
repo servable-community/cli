@@ -27,7 +27,7 @@ export default ({
     },
   ],
   example: "$0",
-  handler: async ({ toolbox }) => {
+  handler: async () => {
 
   },
 })

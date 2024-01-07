@@ -3,6 +3,7 @@ import ChunkAppContent from '../../lib/chunks/app/content/index.js'
 export default ({
   _clinextType: 'command',
   name: 'new',
+  position: 0,
   description: `Create a Servable app 🐻`,
   options: [
     {
