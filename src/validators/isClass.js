@@ -1,4 +1,4 @@
-import isFolderClassSync from "../lib/newlib/isFolderClassSync"
+import isFolderClassSync from "../lib/newlib/isFolderClassSync.js"
 
 
 export default ({
