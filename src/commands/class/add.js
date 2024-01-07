@@ -1,4 +1,4 @@
-import ChunkProtocolContent from '../../lib/chunks/protocol/content/index.js'
+import Chunk from '../../lib/chunks/class/content/index.js'
 
 export default ({
   _clinextType: "command",
@@ -6,46 +6,34 @@ export default ({
   description: 'Add an empty class to a protocol 🐝',
   options: [
     {
-      name: 'appPath',
-      message: "App to add a protocol to",
+      name: 'protocolPath',
+      message: "Protocol to add a class to",
       // validators: [{ id: 'nonempty' }]
     },
     {
-      name: 'protocolId',
+      name: 'className',
       validators: [{
         id: 'nonEmpty'
       }]
     },
     {
-      name: 'protocolDescription',
+      name: 'classDescription',
+      validators: [{
+        id: 'nonEmpty'
+      }]
     },
-
     {
       name: 'license',
     },
   ],
-  example: "$0 protocol eject",
+  example: "$0 class new",
   handler: async () => {
-    await CliNext.prompt.ask([
-      {
-        name: 'appPath',
-      },
-    ])
-
-    await CliNext.prompt.ask([
-      {
-        name: 'protocolId',
-      },
-    ])
-
-    CliNext.payload.destination = `${CliNext.payload.appPath}/lib/protocols/${CliNext.payload.protocolId}`
-
-    let pass = await ChunkProtocolContent.ask()
+    let pass = await Chunk.ask()
 
     if (!pass) {
       return
     }
 
-    await ChunkProtocolContent.write()
+    await Chunk.write()
   },
 })

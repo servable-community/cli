@@ -76,7 +76,7 @@
   ],
   "keywords": [],
   "dependencies": {
-    "@clinext/sdk": "^1.18.0",
+    "@clinext/sdk": "^1.19.1",
     "@servable/manifest": "^1.19.0",
     "axios": "^1.6.1",
     "chalk": "^5.3.0",
