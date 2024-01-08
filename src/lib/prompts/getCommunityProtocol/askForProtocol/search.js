@@ -12,31 +12,29 @@ dotenv.config()
 
 
 export default async (answers, input = '') => {
-    const searchTerm = input
-    const page = 0
+  const searchTerm = input
+  const page = 0
 
-    //const baseUrl = "https://api.registry.servablecommunity.com"
-    const baseUrl = "http://localhost:1387"
-    const url = `${baseUrl}/searchprotocol`
+  const url = `${process.env.SERVABLE_API_HOST}/searchprotocol`
 
-    try {
-        const result = await axios({
-            method: "GET",
-            url,
-            headers: {
-                "content-type": "application/json"
-            },
-            params: {
-                searchTerm,
-                page
-                // Where: JSON.stringify({ "post": { "$inQuery": { "where": { "image": { "$exists": true } }, "className": "Post" } } })
-            }
-        })
+  try {
+    const result = await axios({
+      method: "GET",
+      url,
+      headers: {
+        "content-type": "application/json"
+      },
+      params: {
+        searchTerm,
+        page
+        // Where: JSON.stringify({ "post": { "$inQuery": { "where": { "image": { "$exists": true } }, "className": "Post" } } })
+      }
+    })
 
-        return result.data
-    } catch (e) {
-        console.error(e)
-    }
+    return result.data
+  } catch (e) {
+    console.error(e)
+  }
 
-    return null
+  return null
 }

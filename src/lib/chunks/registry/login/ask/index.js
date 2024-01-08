@@ -10,7 +10,7 @@ import saveValueToStore from "../../../../../lib/store/save.js"
 
 export default async (props) => {
     const { toolbox, payload, initiate = true } = props
-    const domain = "registry.servable.app"
+    const domain = "servable.app"
     toolbox.log('domain', domain)
     const username = await getValueFromStore({
         key: 'username',
