@@ -9,17 +9,17 @@ export default ({
       name: 'registryUsername',
       storeValue: true,
       loadFromStoreOnInit: true,
-      storeDomain: process.env.SERVABLE_API_HOST
+      storeDomain: CliNext.env.SERVABLE_API_HOST
     },
     {
       name: 'registryPassword',
-      storeDomain: process.env.SERVABLE_API_HOST
+      storeDomain: CliNext.env.SERVABLE_API_HOST
     },
     {
       name: 'registrySessionToken',
       storeValue: true,
       loadFromStoreOnInit: true,
-      storeDomain: process.env.SERVABLE_API_HOST
+      storeDomain: CliNext.env.SERVABLE_API_HOST
     },
   ],
   example: "$0 registry auth login",

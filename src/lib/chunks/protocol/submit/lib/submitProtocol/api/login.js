@@ -3,7 +3,7 @@ import axios from "axios";
 dotenv.config()
 
 export default async ({ protocolId, }) => {
-  const url = `${process.env.SERVABLE_API_HOST}/protocol/byuniqueref`
+  const url = `${CliNext.env.SERVABLE_API_HOST}/protocol/byuniqueref`
 
   try {
     const result = await axios({

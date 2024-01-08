@@ -1,4 +1,5 @@
 export default ({
+  _clinextType: "option",
   name: 'registryPassword',
   type: 'string',
   promptType: 'password',

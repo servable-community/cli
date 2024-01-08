@@ -15,7 +15,7 @@ export default async (answers, input = '') => {
   const searchTerm = input
   const page = 0
 
-  const url = `${process.env.SERVABLE_API_HOST}/searchprotocol`
+  const url = `${CliNext.env.SERVABLE_API_HOST}/searchprotocol`
 
   try {
     const result = await axios({

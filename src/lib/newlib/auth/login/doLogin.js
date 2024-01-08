@@ -3,7 +3,7 @@ import axios from "axios"
 dotenv.config()
 
 export default async ({ username, password, }) => {
-  const url = `${process.env.SERVABLE_API_HOST}/user/login`
+  const url = `${CliNext.env.SERVABLE_API_HOST}/user/login`
 
   try {
     const result = await axios({

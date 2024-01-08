@@ -128,8 +128,8 @@ export default [
                 "params": {
                     "apiKey": "<%= apiKey %>",
                     "frontWebUrl": "<%= frontWebUrl %>",
-                    "env": process.env.NODE_ENV,
-                    "appName": process.env.SERVABLE_APP_NAME,
+                    "env": CliNext.env.NODE_ENV,
+                    "appName": CliNext.env.SERVABLE_APP_NAME,
                     "restrictSend": "<%= restrictSend %>",
                     "restrictTo": "<%= restrictTo %>",
                     "restrictToRegex": "<%= restrictToRegex %>",

@@ -82,7 +82,7 @@ export default ({
 
 
 const doLogout = async ({ username, password, }) => {
-  const url = `${process.env.SERVABLE_API_HOST}/user/logout`
+  const url = `${CliNext.env.SERVABLE_API_HOST}/user/logout`
 
   try {
     const result = await axios({
